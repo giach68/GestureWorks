@@ -6,9 +6,9 @@ using Leap.Unity;
 using System.Globalization;
 
 //raccoglie dati dalla mano
-public class posTracker : MonoBehaviour
+public class PosTracker : MonoBehaviour
 {
-    public logger log= new logger();
+    public FileLogger log= new FileLogger();
     public Leap.Unity.LeapServiceProvider LP;
     public  GameObject left;
     public GameObject right;
@@ -46,7 +46,7 @@ public class posTracker : MonoBehaviour
         //output += "\n";
     }
 
-    public void setFilePath(string folder, string fileName)
+    public void SetFilePath(string folder, string fileName)
     {
         this.folder = folder;
         this.fileName = fileName;
@@ -64,7 +64,7 @@ public class posTracker : MonoBehaviour
     //in questo caso, viene disattivato da recorder (non è chiamato in automatico, ma è invocato da recorder quando si mette a false con pt.enabled = false)
     public void OnDisable()
     {
-        log.writeData(output);
+        log.WriteData(output);
         output = "";
         log.Disable();
     }
@@ -90,11 +90,11 @@ public class posTracker : MonoBehaviour
         //Leap.Frame f = LP.CurrentFrame;
         //output += " frame number #" + (LP.CurrentFrame.Id - frame_offset).ToString() + "\n";
         if (pos_left) 
-            output += getHandInfo(left, HandType.Left);
+            output += GetHandInfo(left, HandType.Left);
         if (pos_right) 
-            output += getHandInfo(right, HandType.Right);
+            output += GetHandInfo(right, HandType.Right);
 
-        log.writeData(output);
+        log.WriteData(output);
         output = "";
     }
 
@@ -102,7 +102,7 @@ public class posTracker : MonoBehaviour
     {
         //scrivo inizio delimitazione gesto
         string input = "##;" + gesture + ";##";
-        log.addToLine(input);
+        log.AddToLine(input);
     }
 
     public void EndGesture()
@@ -111,7 +111,7 @@ public class posTracker : MonoBehaviour
     }
 
     //id: che mano è (0 sx, 1 dx), vedi invocazione
-    string getHandInfo(GameObject hand, HandType id)
+    string GetHandInfo(GameObject hand, HandType id)
     { 
         string info = "";
 
@@ -142,11 +142,11 @@ public class posTracker : MonoBehaviour
                     GameObject.FindWithTag("RP").transform.rotation.z + ";" +
                     GameObject.FindWithTag("RP").transform.rotation.w + ";";
 
-            info += getFingerInfo(hand, "thumb", id);
-            info += getFingerInfo(hand, "index", id);
-            info += getFingerInfo(hand, "middle", id);
-            info += getFingerInfo(hand, "ring", id);
-            info += getFingerInfo(hand, "pinky", id);
+            info += GetFingerInfo(hand, "thumb", id);
+            info += GetFingerInfo(hand, "index", id);
+            info += GetFingerInfo(hand, "middle", id);
+            info += GetFingerInfo(hand, "ring", id);
+            info += GetFingerInfo(hand, "pinky", id);
             //add any more needed info here
 
             return info;
@@ -176,11 +176,11 @@ public class posTracker : MonoBehaviour
                     GameObject.FindWithTag("LP").transform.rotation.z + ";" +
                     GameObject.FindWithTag("LP").transform.rotation.w + ";";
 
-            info += getFingerInfo(hand, "thumb", id);
-            info += getFingerInfo(hand, "index", id);
-            info += getFingerInfo(hand, "middle", id);
-            info += getFingerInfo(hand, "ring", id);
-            info += getFingerInfo(hand, "pinky", id);// + "|" + timer;
+            info += GetFingerInfo(hand, "thumb", id);
+            info += GetFingerInfo(hand, "index", id);
+            info += GetFingerInfo(hand, "middle", id);
+            info += GetFingerInfo(hand, "ring", id);
+            info += GetFingerInfo(hand, "pinky", id);// + "|" + timer;
             return info;
         }
         //errore
@@ -194,7 +194,7 @@ public class posTracker : MonoBehaviour
         }
     }
 
-    string getFingerInfo(GameObject hand, string finger, HandType id)
+    string GetFingerInfo(GameObject hand, string finger, HandType id)
     {
         string info = "";
 

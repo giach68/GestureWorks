@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 //è la prima classe chiamata
 
-public class recorder : MonoBehaviour
+public class Recorder : MonoBehaviour
 {
     public float timer;
     [Tooltip("frame per second")]
@@ -14,7 +14,7 @@ public class recorder : MonoBehaviour
     bool recording;
     public string fileName;
     public string folder;
-    private posTracker pt;
+    private PosTracker pt;
     public string[] seqElements= new string[5];
     private int seqIndx;
     private Stopwatch stopWatch;
@@ -24,7 +24,7 @@ public class recorder : MonoBehaviour
     {
         recording = false;
         GameObject leapRig = GameObject.Find("Leap Rig"); //prendo l'oggetto nella scena che si chiama Leap Rig
-        pt = leapRig.GetComponent<posTracker>(); //prendo il componente di tipo posTracker e lo metto in pt
+        pt = leapRig.GetComponent<PosTracker>(); //prendo il componente di tipo posTracker e lo metto in pt
         seqIndx = 0;
         stopWatch = new Stopwatch();
     }
@@ -92,7 +92,7 @@ public class recorder : MonoBehaviour
         UnityEngine.Debug.Log(msg);
         yield return new WaitForSeconds(timer); //tipo crea figlio e aspetta che finisca
 
-        pt.setFilePath(folder, fileName);
+        pt.SetFilePath(folder, fileName);
         recording = true;
         UnityEngine.Debug.Log("Recording");
 

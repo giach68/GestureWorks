@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ActionLeapRecorder.unity
+- path: Assets/Scenes/ActionPlayer.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

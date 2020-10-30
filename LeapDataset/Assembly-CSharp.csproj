@@ -257,11 +257,11 @@
      <Compile Include="Assets\RockVR\Video\Scripts\VideoCapture.cs" />
      <Compile Include="Assets\RockVR\Video\Scripts\VideoCaptureCtrl.cs" />
      <Compile Include="Assets\RockVR\Video\Scripts\VideoPlayer.cs" />
+     <Compile Include="Assets\Script\FileLogger.cs" />
      <Compile Include="Assets\Script\HandEnum.cs" />
      <Compile Include="Assets\Script\HandPlayer.cs" />
-     <Compile Include="Assets\Script\logger.cs" />
-     <Compile Include="Assets\Script\posTracker.cs" />
-     <Compile Include="Assets\Script\recorder.cs" />
+     <Compile Include="Assets\Script\PosTracker.cs" />
+     <Compile Include="Assets\Script\Recorder.cs" />
      <None Include="Assets\LeapLogs\test\25.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_12_1247.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_1_0200.txt" />
@@ -476,6 +476,7 @@
      <None Include="Assets\LeapLogs\SHREC\V_02_14_3_0833.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_11_5713.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_4759.txt" />
+     <None Include="Assets\LeapLogs\Interface\ProveDeb\riferimento deb.txt" />
      <None Include="Assets\LeapLogs\SHREC\78.txt" />
      <None Include="Assets\LeapLogs\SHREC\113.txt" />
      <None Include="Assets\LeapLogs\test\11.txt" />
@@ -523,6 +524,7 @@
      <None Include="Assets\LeapLogs\sub1\action_02_03_11_43.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_12_1822.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_3456.txt" />
+     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_10_30_4_1212.txt" />
      <None Include="Assets\LeapLogs\SHREC\12.txt" />
      <None Include="Assets\LeapLogs\SHREC\108.txt" />
      <None Include="Assets\LeapLogs\SHREC\103.txt" />
@@ -574,7 +576,6 @@
      <None Include="Assets\RockVR\Video\Shaders\FlippingTexture.shader" />
      <None Include="Assets\LeapLogs\SHREC\58.txt" />
      <None Include="Assets\LeapLogs\SHREC\O _02_14_3_1016.txt" />
-     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_10_29_7_4355.txt" />
      <None Include="Assets\LeapLogs\SHREC\34.txt" />
      <None Include="Assets\LeapLogs\Interface\Leva\prova_02_14_3_3803.txt" />
      <None Include="Assets\LeapLogs\SHREC\98.txt" />
@@ -804,13 +805,13 @@
  <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -1167,52 +1168,52 @@
  <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Monetization">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/Google Drive/SCUOLA/Università/Triennale/Tirocinio/LeapDataset/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
