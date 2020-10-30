@@ -45,6 +45,8 @@ TagManager:
   - Rt1
   - Rt2
   - Rt3
+  - LW
+  - RW
   layers:
   - Default
   - TransparentFX

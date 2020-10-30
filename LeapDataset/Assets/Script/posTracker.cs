@@ -5,6 +5,7 @@ using Leap;
 using Leap.Unity;
 using System.Globalization;
 
+//raccoglie dati dalla mano
 public class posTracker : MonoBehaviour
 {
     public logger log= new logger();
@@ -51,12 +52,16 @@ public class posTracker : MonoBehaviour
         this.fileName = fileName;
     }
 
+    //chiamata da unity quando il componente è attivato (spunta)
+    //in questo caso, viene attivato da recorder (non è chiamato in automatico, ma è invocato da recorder quando si mette a true con pt.enabled = true)
     public void OnEnable()
     {
         //log.enabled = true;
         log.Enable(folder, fileName);
     }
 
+    //chiamata da unity quando il componente è disattivato (tolgo spunta)
+    //in questo caso, viene disattivato da recorder (non è chiamato in automatico, ma è invocato da recorder quando si mette a false con pt.enabled = false)
     public void OnDisable()
     {
         log.writeData(output);
@@ -84,41 +89,125 @@ public class posTracker : MonoBehaviour
         //timer = Mathf.Round((Time.unscaledTime * (1.0f / sampling_rate))) / (1.0f / sampling_rate);
         //Leap.Frame f = LP.CurrentFrame;
         //output += " frame number #" + (LP.CurrentFrame.Id - frame_offset).ToString() + "\n";
-        if (pos_left) output += getHandInfo(left, 0) + "\n";
-        if (pos_right) output += getHandInfo(right, 1) + "\n";
+        if (pos_left) 
+            output += getHandInfo(left, HandType.Left);
+        if (pos_right) 
+            output += getHandInfo(right, HandType.Right);
+
         log.writeData(output);
         output = "";
     }
 
     public void StartGesture(string gesture)
     {
-        string input = "##;" + gesture + ";##\n";
+        //scrivo inizio delimitazione gesto
+        string input = "##;" + gesture + ";##";
         log.addToLine(input);
     }
 
     public void EndGesture()
     {
-        string input = "##;##;##\n";
-        log.addToLine(input);
+        StartGesture("##");
     }
 
-    string getFingerInfo(GameObject hand, string finger, int id)
-    {
-        float xPos = 0;
-        float yPos = 0;
-        float zPos = 0;
+    //id: che mano è (0 sx, 1 dx), vedi invocazione
+    string getHandInfo(GameObject hand, HandType id)
+    { 
         string info = "";
 
-        if(id == 0 && hand != null)
+        //dx
+        if (id.Equals(HandType.Right) && hand != null)
+        {
+            //info = id.ToString() + ":"; 
+
+            //Wrist
+            info += GameObject.FindWithTag("RW").transform.position.x + ";" +
+                    GameObject.FindWithTag("RW").transform.position.y + ";" +
+                    GameObject.FindWithTag("RW").transform.position.z + ";";
+
+            //Wrist quaternions
+            info += GameObject.FindWithTag("RW").transform.rotation.x + ";" +
+                    GameObject.FindWithTag("RW").transform.rotation.y + ";" +
+                    GameObject.FindWithTag("RW").transform.rotation.z + ";" +
+                    GameObject.FindWithTag("RW").transform.rotation.w + ";";
+
+            //Palm
+            info += GameObject.FindWithTag("RP").transform.position.x + ";" + //vedi tag su oggetto R_Palm su Unity - 1 tag 1 oggetto solo
+                    GameObject.FindWithTag("RP").transform.position.y + ";" +
+                    GameObject.FindWithTag("RP").transform.position.z + ";";
+
+            //Palm quaternions
+            info += GameObject.FindWithTag("RP").transform.rotation.x + ";" +
+                    GameObject.FindWithTag("RP").transform.rotation.y + ";" +
+                    GameObject.FindWithTag("RP").transform.rotation.z + ";" +
+                    GameObject.FindWithTag("RP").transform.rotation.w + ";";
+
+            info += getFingerInfo(hand, "thumb", id);
+            info += getFingerInfo(hand, "index", id);
+            info += getFingerInfo(hand, "middle", id);
+            info += getFingerInfo(hand, "ring", id);
+            info += getFingerInfo(hand, "pinky", id);
+            //add any more needed info here
+
+            return info;
+        }
+        //sx
+        else if (id.Equals(HandType.Left) && hand != null)
+        {
+            //Wrist
+            info += GameObject.FindWithTag("LW").transform.position.x + ";" +
+                    GameObject.FindWithTag("LW").transform.position.y + ";" +
+                    GameObject.FindWithTag("LW").transform.position.z + ";";
+
+            //Wrist quaternions
+            info += GameObject.FindWithTag("LW").transform.rotation.x + ";" +
+                    GameObject.FindWithTag("LW").transform.rotation.y + ";" +
+                    GameObject.FindWithTag("LW").transform.rotation.z + ";" +
+                    GameObject.FindWithTag("LW").transform.rotation.w + ";";
+
+            //Palm
+            info += GameObject.FindWithTag("LP").transform.position.x + ";" + //vedi tag su oggetto R_Palm su Unity - 1 tag 1 oggetto solo
+                    GameObject.FindWithTag("LP").transform.position.y + ";" +
+                    GameObject.FindWithTag("LP").transform.position.z + ";";
+
+            //Palm quaternions
+            info += GameObject.FindWithTag("LP").transform.rotation.x + ";" +
+                    GameObject.FindWithTag("LP").transform.rotation.y + ";" +
+                    GameObject.FindWithTag("LP").transform.rotation.z + ";" +
+                    GameObject.FindWithTag("LP").transform.rotation.w + ";";
+
+            info += getFingerInfo(hand, "thumb", id);
+            info += getFingerInfo(hand, "index", id);
+            info += getFingerInfo(hand, "middle", id);
+            info += getFingerInfo(hand, "ring", id);
+            info += getFingerInfo(hand, "pinky", id);// + "|" + timer;
+            return info;
+        }
+        //errore
+        else
+        {
+            info = "???";
+            info += id + ";";
+            info += "invalid_hand;";
+            return info;
+
+        }
+    }
+
+    string getFingerInfo(GameObject hand, string finger, HandType id)
+    {
+        string info = "";
+
+        //left
+        if(id.Equals(HandType.Left) && hand != null)
         {
             if (finger.Equals("thumb")){
+                //thumb has one less node than the other fingers
                 for(int i=1; i<4; i++) {
-                    xPos = GameObject.FindWithTag("Lt"+ i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Lt" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Lt"+i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Lt"+ i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Lt" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Lt"+ i.ToString()).transform.position.z +";";
+
                     info += GameObject.FindWithTag("Lt" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Lt" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Lt" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -129,12 +218,10 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Li" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Li" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Li" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Li" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Li" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Li" + i.ToString()).transform.position.z + ";";
+                    
                     info += GameObject.FindWithTag("Li" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Li" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Li" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -145,12 +232,10 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Lm" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Lm" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Lm" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Lm" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Lm" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Lm" + i.ToString()).transform.position.z + ";";
+
                     info += GameObject.FindWithTag("Lm" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Lm" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Lm" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -161,13 +246,11 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Lr" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Lr" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Lr" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
-                    info += "(" + GameObject.FindWithTag("Lr" + i.ToString()).transform.rotation.x.ToString() + ";";
+                    info += GameObject.FindWithTag("Lr" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Lr" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Lr" + i.ToString()).transform.position.z + ";";
+
+                    info += GameObject.FindWithTag("Lr" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Lr" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Lr" + i.ToString()).transform.rotation.z.ToString() + ";";
                     info += GameObject.FindWithTag("Lr" + i.ToString()).transform.rotation.w.ToString() + ";";
@@ -177,12 +260,10 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Lp" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Lp" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Lp" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Lp" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Lp" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Lp" + i.ToString()).transform.position.z + ";";
+
                     info += GameObject.FindWithTag("Lp" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Lp" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Lp" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -190,18 +271,17 @@ public class posTracker : MonoBehaviour
                 }
             }
         }
-        else if(id == 1 && hand != null)
+        //right
+        else if(id.Equals(HandType.Right) && hand != null)
         {
             if (finger.Equals("thumb"))
             {
                 for (int i = 1; i < 4; i++)
                 {
-                    xPos = GameObject.FindWithTag("Rt" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Rt" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Rt" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Rt" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Rt" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Rt" + i.ToString()).transform.position.z + ";";
+
                     info += GameObject.FindWithTag("Rt" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Rt" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Rt" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -212,12 +292,10 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Ri" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Ri" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Ri" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Ri" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Ri" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Ri" + i.ToString()).transform.position.z + ";";
+
                     info += GameObject.FindWithTag("Ri" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Ri" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Ri" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -228,12 +306,10 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Rm" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Rm" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Rm" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Rm" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Rm" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Rm" + i.ToString()).transform.position.z + ";";
+
                     info += GameObject.FindWithTag("Rm" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Rm" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Rm" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -244,12 +320,10 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Rr" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Rr" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Rr" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Rr" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Rr" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Rr" + i.ToString()).transform.position.z + ";";
+
                     info += GameObject.FindWithTag("Rr" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Rr" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Rr" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -260,12 +334,10 @@ public class posTracker : MonoBehaviour
             {
                 for (int i = 1; i < 5; i++)
                 {
-                    xPos = GameObject.FindWithTag("Rp" + i.ToString()).transform.position.x;
-                    yPos = GameObject.FindWithTag("Rp" + i.ToString()).transform.position.y;
-                    zPos = GameObject.FindWithTag("Rp" + i.ToString()).transform.position.z;
-                    info += xPos + ";";
-                    info += yPos + ";";
-                    info += zPos + ";";
+                    info += GameObject.FindWithTag("Rp" + i.ToString()).transform.position.x + ";" +
+                            GameObject.FindWithTag("Rp" + i.ToString()).transform.position.y + ";" +
+                            GameObject.FindWithTag("Rp" + i.ToString()).transform.position.z + ";";
+
                     info += GameObject.FindWithTag("Rp" + i.ToString()).transform.rotation.x.ToString() + ";";
                     info += GameObject.FindWithTag("Rp" + i.ToString()).transform.rotation.y.ToString() + ";";
                     info += GameObject.FindWithTag("Rp" + i.ToString()).transform.rotation.z.ToString() + ";";
@@ -273,79 +345,15 @@ public class posTracker : MonoBehaviour
                 }
             }
         }
+        //errore
         else
         {
-
             info = "???";
-            info += id.ToString() + ";"; //0 for left hand Id
+            info += id + ";";
             info += "invalid_hand;";
             return info;
         }
 
         return info;
-    }
-
-    string getHandInfo(GameObject hand, int id)
-    {
-        float xPos = 0;
-        float yPos = 0;
-        float zPos = 0;
-        string info = "";
-        if (id == 1 && hand != null)
-        {
-            //info = id.ToString() + ":"; 
-            xPos = GameObject.FindWithTag("RP").transform.position.x;
-            yPos = GameObject.FindWithTag("RP").transform.position.y;
-            zPos = GameObject.FindWithTag("RP").transform.position.z;
-
-            info += xPos + ";";
-            info += yPos + ";";
-            info += zPos + ";";
-            info += GameObject.FindWithTag("RP").transform.rotation.x + ";";
-            info += GameObject.FindWithTag("RP").transform.rotation.y + ";";
-            info += GameObject.FindWithTag("RP").transform.rotation.z + ";";
-            info += GameObject.FindWithTag("RP").transform.rotation.w + ";";
-           
-            info += getFingerInfo(hand, "thumb", id);
-            info += getFingerInfo(hand, "index", id);
-            info += getFingerInfo(hand, "middle", id);
-            info += getFingerInfo(hand, "ring", id);
-            info += getFingerInfo(hand, "pinky", id);
-            //add any more needed info here
-           
-            return info;
-        }
-        else if(id == 0 && hand != null)
-        {
-            info = id.ToString() + ":";
-            xPos = GameObject.FindWithTag("LP").transform.position.x;
-            yPos = GameObject.FindWithTag("LP").transform.position.y;
-            zPos = GameObject.FindWithTag("LP").transform.position.z;
-
-            info += "palmpos(" + xPos + ";";
-            info += yPos + ";";
-            info += zPos + ")";
-            info += " | ";
-            info += "parmrot(" + GameObject.FindWithTag("LP").transform.rotation.x + ";";
-            info += GameObject.FindWithTag("LP").transform.rotation.y + ";";
-            info += GameObject.FindWithTag("LP").transform.rotation.z + ";";
-            info += GameObject.FindWithTag("LP").transform.rotation.w + ")";
-
-            info += getFingerInfo(hand, "thumb", id);
-            info += getFingerInfo(hand, "index", id);
-            info += getFingerInfo(hand, "middle", id);
-            info += getFingerInfo(hand, "ring", id);
-            info += getFingerInfo(hand, "pinky", id) + "|" + timer;
-            return info;
-        }
-        else
-        {
-
-            info = "???";
-            info += id.ToString() + ";"; //0 for left hand Id
-            info += "invalid_hand;";
-            return info;
-
-        }
     }
 }

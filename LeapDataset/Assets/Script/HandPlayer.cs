@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Globalization;
+using System.Xml;
 
 public class HandPlayer: MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class HandPlayer: MonoBehaviour
     private string[] lines;
     private FingerModel[] fingers;
     private Transform palm;
+    private Transform wrist;
     private int index;
     private bool player_on;
     private Stopwatch stopWatch;
@@ -45,19 +47,21 @@ public class HandPlayer: MonoBehaviour
         //frame_offset = LP.CurrentFrame.Id;
 
         // Recupero componenti della mano
-        RiggedHand rHand = handRight.GetComponent(typeof(RiggedHand)) as RiggedHand;
+        RiggedHand rHand = handRight.GetComponent(typeof(RiggedHand)) as RiggedHand; //cast + rinomina
         fingers = rHand.fingers; // 0: Thumb; 1:Index; 2:Middle; 3:Ring; 4:Pinky
+        wrist = rHand.wristJoint;
         palm = rHand.palm;
+
         stopWatch = new Stopwatch();
         player_on = false;
         texture = new Texture2D(1, 1);
         textureSEg = new Texture2D(1, 1);
         textureSEg.SetPixel(0, 0, Color.red);
         textureSEg.Apply();
-
-
-
     }
+
+    //funzione di unity per aggiungere elementi grafici sulla scena
+    //chiamato per ogni frame di unity come update
     void OnGUI()
     {
         GUI.Box(new Rect(700, 150, 100, 100), text, style);
@@ -81,14 +85,14 @@ public class HandPlayer: MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
+            //index: riga file che leggo
             index = -1;
             PlayRecords();
         }
         if (player_on)
         {
-            if (Input.GetKeyDown("n"))
-            {
-                
+            if (Input.GetKeyDown("n")) //pausa con n
+            {                
                 if (stopWatch.IsRunning)
                  stopWatch.Stop();
                 else
@@ -104,19 +108,21 @@ public class HandPlayer: MonoBehaviour
                 return;
             }
             // update the joints position
-            if(stopWatch.ElapsedMilliseconds > frameInterval)
+            if(stopWatch.ElapsedMilliseconds > frameInterval) //frameinterval: ogni quanti ms aggiorno la visualizzazione mano
             {
-                UpdateJoints(index++);
+                UpdateJoints(index++); //passo alla prossima riga 'scaduto' il tempo
                 stopWatch.Restart();
             }
         }
     }
+
     /// <summary>
     /// Reproduce the gesture with the datas in the file
     /// </summary>
     public void PlayRecords()
     {
-        // carica testo dal file 
+        // carica testo dal file per riga
+        // fa uno split per ogni riga, mette ogni riga in un array lines di stringhe
         lines = file.text.Split(new string[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
 
         // Start reading and move hand model
@@ -127,8 +133,9 @@ public class HandPlayer: MonoBehaviour
             stopWatch.Restart();
             UnityEngine.Debug.Log("Start player");
         }
-        else
+        else //se il player è già acceso, vado qua. fermo la registrazione
         {
+            //+2 per superare limite file EOF
             index = lines.Length + 2;
         }
     }
@@ -141,25 +148,29 @@ public class HandPlayer: MonoBehaviour
     {
         UnityEngine.Debug.Log("Update");
 
+        //split separata con ;, ogni cella è una valore splittato
         string[] valString = lines[index].Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+
+        //verifica se ha ## (finito un gesto)
         if(valString[1].Contains("##"))
         {
-            text = "";
+            text = ""; //etichetta
             //textureSEg.SetPixel(0, 0, Color.red);
             //textureSEg.Apply();
-            Thread.Sleep(700);
+            //Thread.Sleep(700); cambio etichetta 
             return;
         }
         else if (valString[0].Contains("##"))
         {
             text = valString[1];
 
-            Thread.Sleep(700);
+            //Thread.Sleep(700); cambio etichetta
             //textureSEg.SetPixel(0, 0, Color.green);
             //textureSEg.Apply();
             return;
         }
 
+        //conversione tutta in un'istruzione forse da fare
         float[] values = new float[valString.Length];
         for(int ind = 0;  ind< valString.Length; ind++)
         {
@@ -167,11 +178,11 @@ public class HandPlayer: MonoBehaviour
         }
 
         // palmpos(x;y;z);palmquat(x,y,z,w) 0->6
-        palm.position = new Vector3(values[0], values[1], values[2]);
-        if (index < 10)
+        palm.position = new Vector3(values[0], values[1], values[2]); //x y z
+        if (index < 10) //i primi 10 frame (10 righe) segue palmo
         {
             camera.transform.position = new Vector3(values[0] + xOffset, values[1] + yOffset, values[2] + zOffset);
-            camera.transform.rotation = Quaternion.Euler(40, 80, 0);
+            camera.transform.rotation = Quaternion.Euler(40, 80, 0); //rotazione posizione
         }
         palm.rotation = new Quaternion(values[3], values[4], values[5], values[6]);
         int i = 6;
@@ -183,6 +194,7 @@ public class HandPlayer: MonoBehaviour
         //    "ringBpos(x;y;z)|ringBquat(x;y;z;w)|ringCpos(x;y;z)|ringCquat(x;y;z;w)|ringEndpos(x;y;z)|ringEndquat(x;y;z;w)|" +
         //    "pinkyApos(x;y;z)|pinkyAquat(x;y;z;w)|pinkyBpos(x;y;z)|pinkyBquat(x;y;z;w)|pinkyCpos(x;y;z)|pinkyCquat(x;y;z;w)|" +
         //    "pinkyEndpos(x;y;z)|pinkyEndquat(x;y;z;w)
+
         /// Attenzione: joints delle dita devono essere impostati manualmente e correttamente in modo che rispettino l'ordine 
         foreach (FingerModel finger in fingers)
         {

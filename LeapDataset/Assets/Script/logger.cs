@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+//scrive su file, chamato da posTracker
 public class logger
 {
     private string path;
     private string buffer;
     private StreamWriter sw;
 
+    //simula onEnable(), inizializza logger (tipo costruttore, ma riuso l'oggetto)
     public void Enable(string folder, string fileName)
     {
         Directory.CreateDirectory(string.Format("Assets/LeapLogs/{0}", folder));
@@ -26,6 +28,7 @@ public class logger
         //}
     }
 
+    //chiude lo stream write
     public void Disable()
     {
         //writeData("");
@@ -37,29 +40,37 @@ public class logger
     public void writeData(string text)
     {
         buffer += text;
-        sw.WriteAsync( buffer);
+        closeLine();
+        sw.WriteAsync(buffer); //funzione di c#, asincorna altrimenti sarebbe bloccante
         buffer = "";
     }
 
-    public void newLine(string text)
-    {
-        buffer += "\n" + text;
-        return;
-    }
+    //aggiongo al buffer e lo scrivo dopo
     public void addToLine(string text)
     {
         buffer += text;
+        closeLine();
         return;
     }
-    public void newLineMarked(string text)
-    {
-        buffer += "\n%" + text;
-        return;
-    }
+
     public void closeLine()
     {
         buffer += "\n";
         return;
     }
+
+    /*public void newLine(string text)
+    {
+        buffer += "\n" + text;
+        return;
+    }*/
+
+    /*
+    public void newLineMarked(string text)
+    {
+        buffer += "\n%" + text;
+        return;
+    }*/
+
 
 }

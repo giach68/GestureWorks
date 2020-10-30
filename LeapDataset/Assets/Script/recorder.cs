@@ -4,6 +4,8 @@ using UnityEngine;
 using Leap.Unity;
 using System.Diagnostics;
 
+//è la prima classe chiamata
+
 public class recorder : MonoBehaviour
 {
     public float timer;
@@ -21,8 +23,8 @@ public class recorder : MonoBehaviour
     public void Start()
     {
         recording = false;
-        GameObject leapRig = GameObject.Find("Leap Rig");
-        pt = leapRig.GetComponent<posTracker>();
+        GameObject leapRig = GameObject.Find("Leap Rig"); //prendo l'oggetto nella scena che si chiama Leap Rig
+        pt = leapRig.GetComponent<posTracker>(); //prendo il componente di tipo posTracker e lo metto in pt
         seqIndx = 0;
         stopWatch = new Stopwatch();
     }
@@ -31,33 +33,36 @@ public class recorder : MonoBehaviour
     void Update()
     {
         // press Space for start recording
-        if (Input.GetKey(KeyCode.Space) && !recording)
+        if (Input.GetKeyDown(KeyCode.Space) && !recording)
         {
             Record();
         }
 
         // press Space for stop recording
-        if (Input.GetKey(KeyCode.Space) && recording)
+        if (Input.GetKeyDown(KeyCode.Space) && recording)
         {
             Stop();
-
         }
+
+        //mentre sto registrando, delimito l'inizio di un gesto
         else if(Input.GetKeyDown(KeyCode.N) && recording) // start gesture label at N press
         {
+            //check che non si esca dall'array (ovvero quanti gesti sto registrando)
             if(seqIndx < seqElements.Length)
                 pt.StartGesture(seqElements[seqIndx++]);
             else
                 pt.StartGesture("end");
         }
+        //al rilascio del bottone, scrivo end e finisco il gesto
         else if(Input.GetKeyUp(KeyCode.N) && recording) // end gesture label at N relaese
         {
             pt.EndGesture();
         }
 
-        if(freq > 0 && recording && stopWatch.ElapsedMilliseconds >= (1000.0f/freq))
+        if(freq > 0 && recording && stopWatch.ElapsedMilliseconds >= (1000.0f/freq)) //ogni 33ms (se freq = 30) registro nuova pos della mano
         {
             UpdateRecording();
-            stopWatch.Restart();
+            stopWatch.Restart(); //riparte conteggio cronometro
         }
 
     }
@@ -65,7 +70,7 @@ public class recorder : MonoBehaviour
     public void Record()
     {
         if (!recording)
-            StartCoroutine(Wait());
+            StartCoroutine(Wait()); //inizia un processo (wait) in parallelo (asincrono)
         else
             Stop();
     }
@@ -83,14 +88,16 @@ public class recorder : MonoBehaviour
     IEnumerator Wait()
     {
         string msg = "The recording will start in " + timer + " seconds";
-        recording = true;
+        
         UnityEngine.Debug.Log(msg);
-        yield return new WaitForSeconds(timer);
-        GameObject leapRig = GameObject.Find("Leap Rig");
-        posTracker pt = leapRig.GetComponent<posTracker>();
+        yield return new WaitForSeconds(timer); //tipo crea figlio e aspetta che finisca
+
+        pt.setFilePath(folder, fileName);
+        recording = true;
         UnityEngine.Debug.Log("Recording");
-        pt.enabled = recording;
-        if(freq>0)
+
+        pt.enabled = recording; //visto che recording è true, abilito il componente pt (posTracker), invocando il metodo onEnable()
+        if(freq>0) //può essere <0 se l'utente non vuole registrare e mette 0 su unity
             stopWatch.Restart();
     }
 
@@ -99,6 +106,7 @@ public class recorder : MonoBehaviour
         pt.UpdateRecording();
     }
 
+    /*
     public void StartRecording(string fileName, string folder)
     {
         recording = true;
@@ -107,8 +115,10 @@ public class recorder : MonoBehaviour
         seqIndx = 0;
         pt.setFilePath(folder, fileName);
         pt.enabled = recording;
-    }
+    }   
+    */
 
+    //di unity, chiude tutto 
     public void Close()
     {
         Stop();
