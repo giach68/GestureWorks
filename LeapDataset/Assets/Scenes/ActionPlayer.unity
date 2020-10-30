@@ -225,6 +225,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &73890858 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4839117120245796, guid: 2276723046d707c4f94d431ceb80ab92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1882207504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &75722226
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4dd0ef69f99a4e4ba9ee6f928639b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: 45162bbf3ac36b74b99ab47583dcb660, type: 3}
+  file: {fileID: 4900000, guid: 9b74f9b32f5b22645b4b9788c771c081, type: 3}
   handRight: {fileID: 915382710}
   frameInterval: 70
   camera: {fileID: 243056094}
@@ -1125,6 +1131,11 @@ PrefabInstance:
       propertyPath: joints.Array.data[3]
       value: 
       objectReference: {fileID: 849523578}
+    - target: {fileID: 114245269363414434, guid: 2276723046d707c4f94d431ceb80ab92,
+        type: 3}
+      propertyPath: wristJoint
+      value: 
+      objectReference: {fileID: 73890858}
     - target: {fileID: 114391401882691968, guid: 2276723046d707c4f94d431ceb80ab92,
         type: 3}
       propertyPath: joints.Array.data[0]

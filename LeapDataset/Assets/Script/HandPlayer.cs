@@ -98,7 +98,7 @@ public class HandPlayer: MonoBehaviour
                 else
                     stopWatch.Start();
             }
-            if (index >= lines.Length)
+            if (index >= lines.Length) //sono alla fine del file
             {
                 // end player
                 player_on = false;
@@ -177,15 +177,27 @@ public class HandPlayer: MonoBehaviour
             values[ind] = float.Parse(valString[ind], CultureInfo.InvariantCulture.NumberFormat);
         }
 
-        // palmpos(x;y;z);palmquat(x,y,z,w) 0->6
-        palm.position = new Vector3(values[0], values[1], values[2]); //x y z
-        if (index < 10) //i primi 10 frame (10 righe) segue palmo
+        //--- WRIST
+        //wrist positions 0, 1, 2
+        wrist.position = new Vector3(values[0], values[1], values[2]);
+        //wrist rotation 3, 4, 5, 6
+        wrist.rotation = new Quaternion(values[3], values[4], values[5], values[6]);
+
+        //--- PALM
+        // palmpos(x;y;z);palmquat(x,y,z,w) 7->13
+        //palm positions 7, 8, 9
+        palm.position = new Vector3(values[7], values[8], values[9]); //x y z
+        //palm rotation 10 11 12 13
+        palm.rotation = new Quaternion(values[10], values[11], values[12], values[13]);
+
+        //i primi 10 frame (10 righe) camera segue palmo
+        if (index < 10)
         {
-            camera.transform.position = new Vector3(values[0] + xOffset, values[1] + yOffset, values[2] + zOffset);
+            camera.transform.position = new Vector3(values[7] + xOffset, values[8] + yOffset, values[9] + zOffset);
             camera.transform.rotation = Quaternion.Euler(40, 80, 0); //rotazione posizione
         }
-        palm.rotation = new Quaternion(values[3], values[4], values[5], values[6]);
-        int i = 6;
+
+        int i = 13;
 
         // thumbApos(x;y;z)|thumbAquat(x;y;z;w);thumbBpos(x; y; z);thumbBquat(x; y; z; w);thumbEndpos(x;y;z);thumbEndquat(x;y;z;w);
         //    "indexApos(x;y;z)|indexAquat(x;y;z;w)|indexBpos(x;y;z)|indexBquat(x;y;z;w)|indexCpos(x;y;z)|indexCquat(x;y;z;w)|" +
@@ -196,6 +208,8 @@ public class HandPlayer: MonoBehaviour
         //    "pinkyEndpos(x;y;z)|pinkyEndquat(x;y;z;w)
 
         /// Attenzione: joints delle dita devono essere impostati manualmente e correttamente in modo che rispettino l'ordine 
+      
+        //FINGERS
         foreach (FingerModel finger in fingers)
         {
             foreach(Transform joint in finger.joints)
