@@ -262,6 +262,7 @@
      <Compile Include="Assets\Script\HandPlayer.cs" />
      <Compile Include="Assets\Script\PosTracker.cs" />
      <Compile Include="Assets\Script\Recorder.cs" />
+     <Compile Include="Assets\Script\UIController.cs" />
      <None Include="Assets\LeapLogs\test\25.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_12_1247.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_1_0200.txt" />
