@@ -38,8 +38,6 @@ public class HandPlayer: MonoBehaviour
     private String text = "";
     private int frame = 0;
 
-
-
     void Start()
     {
         //right = GameObject.Find("LoPoly Rigged Hand Right");

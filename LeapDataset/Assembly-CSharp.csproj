@@ -271,6 +271,7 @@
      <None Include="Assets\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
      <None Include="Assets\LeapLogs\SHREC\Pinch_02_14_1_5257.txt" />
      <None Include="Assets\LeapLogs\7.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\LeapLogs\SHREC\112.txt" />
      <None Include="Assets\LeapLogs\SHREC\29.txt" />
      <None Include="Assets\LeapLogs\SHREC\3.txt" />
@@ -278,6 +279,7 @@
      <None Include="Assets\LeapLogs\SHREC\144.txt" />
      <None Include="Assets\LeapLogs\Interface\Slider\prova_02_14_3_3414.txt" />
      <None Include="Assets\LeapLogs\SHREC\102.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\LeapLogs\SHREC\127.txt" />
      <None Include="Assets\LeapLogs\test\27.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_2324.txt" />
@@ -305,6 +307,7 @@
      <None Include="Assets\LeapLogs\test\19.txt" />
      <None Include="Assets\LeapLogs\test\13.txt" />
      <None Include="Assets\LeapLogs\SHREC\48.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\LeapLogs\SHREC\37.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_5243.txt" />
      <None Include="Assets\LeapLogs\SHREC\Two_02_14_1_3834.txt" />
@@ -384,6 +387,7 @@
      <None Include="Assets\LeapLogs\2.txt" />
      <None Include="Assets\LeapLogs\SHREC\Four_02_14_1_4525.txt" />
      <None Include="Assets\LeapLogs\SHREC\131.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\LeapLogs\SHREC\129.txt" />
      <None Include="Assets\LeapLogs\13.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_4508.txt" />
@@ -441,6 +445,7 @@
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_12_2415.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_1_0050.txt" />
      <None Include="Assets\LeapLogs\SHREC\Tap_02_14_1_5555.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_4720.txt" />
      <None Include="Assets\LeapLogs\test\23.txt" />
      <None Include="Assets\LeapLogs\SEQ_02_26_12_5850.txt" />
@@ -448,9 +453,12 @@
      <None Include="Assets\LeapLogs\SHREC\Four_02_14_1_4540.txt" />
      <None Include="Assets\LeapLogs\SHREC\O _02_14_3_1025.txt" />
      <None Include="Assets\LeapLogs\SHREC\16.txt" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\LeapLogs\Interface\Leva\prova_02_14_3_3825.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\LeapLogs\SHREC\87.txt" />
      <None Include="Assets\LeapLogs\test\2.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\LeapLogs\SHREC\V_02_14_3_0827.txt" />
      <None Include="Assets\LeapLogs\test\31.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_2450.txt" />
@@ -462,6 +470,7 @@
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_12_1209.txt" />
      <None Include="Assets\LeapLogs\SHREC\66.txt" />
      <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_10_29_7_4709.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\LeapLogs\SHREC\One_02_14_1_3707.txt" />
      <None Include="Assets\LeapLogs\SHREC\59.txt" />
      <None Include="Assets\RockVR\Video\Shaders\CubemapDisplayPro.shader" />
@@ -472,6 +481,7 @@
      <None Include="Assets\LeapLogs\SHREC\20.txt" />
      <None Include="Assets\LeapLogs\SHREC\39.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_1223.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\LeapLogs\Interface\Manopola\prova_02_14_3_3146.txt" />
      <None Include="Assets\LeapLogs\SHREC\V_02_14_3_0833.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_11_5713.txt" />
@@ -488,6 +498,7 @@
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_2719.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_1257.txt" />
      <None Include="Assets\LeapLogs\SHREC\32.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\LeapLogs\Interface\Manopola\prova_02_14_3_3214.txt" />
      <None Include="Assets\LeapLogs\SHREC\134.txt" />
      <None Include="Assets\LeapLogs\SHREC\Grab_02_14_1_4848.txt" />
@@ -514,6 +525,7 @@
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_3244.txt" />
      <None Include="Assets\LeapLogs\test\4.txt" />
      <None Include="Assets\RockVR\Video\Shaders\CubemapToCylindrical.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\LeapLogs\test\21.txt" />
      <None Include="Assets\LeapLogs\Interface\Leva\prova_10_28_10_1503.txt" />
      <None Include="Assets\LeapLogs\SHREC\43.txt" />
@@ -555,6 +567,7 @@
      <None Include="Assets\LeapLogs\SHREC\125.txt" />
      <None Include="Assets\LeapLogs\test\30.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_18_4_4545.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\LeapLogs\SHREC\21.txt" />
      <None Include="Assets\LeapLogs\Interface\Button\prova_02_14_3_3628.txt" />
      <None Include="Assets\LeapLogs\SHREC\24.txt" />
@@ -575,7 +588,9 @@
      <None Include="Assets\LeapLogs\test\22.txt" />
      <None Include="Assets\RockVR\Video\Shaders\FlippingTexture.shader" />
      <None Include="Assets\LeapLogs\SHREC\58.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\LeapLogs\SHREC\O _02_14_3_1016.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\LeapLogs\SHREC\34.txt" />
      <None Include="Assets\LeapLogs\Interface\Leva\prova_02_14_3_3803.txt" />
      <None Include="Assets\LeapLogs\SHREC\98.txt" />
@@ -583,6 +598,7 @@
      <None Include="Assets\LeapLogs\SHREC\One_02_14_1_3659.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_3955.txt" />
      <None Include="Assets\LeapLogs\sub1\Static1_02_11_4_40.txt" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\LeapLogs\SHREC\Five_02_14_1_4624.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_12_1641.txt" />
      <None Include="Assets\LeapLogs\SHREC\38.txt" />
@@ -601,6 +617,7 @@
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_4448.txt" />
      <None Include="Assets\LeapLogs\SHREC\55.txt" />
      <None Include="Assets\LeapLogs\SHREC\Pinch_02_14_1_5244.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\LeapLogs\SHREC\143.txt" />
      <None Include="Assets\LeapLogs\SHREC\5.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_1405.txt" />
@@ -618,6 +635,7 @@
      <None Include="Assets\LeapLogs\SHREC\SwipeRigth _02_14_3_0510.txt" />
      <None Include="Assets\LeapLogs\sub1\action_02_11_1_49.txt" />
      <None Include="Assets\LeapLogs\SHREC\80.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\LeapLogs\SHREC\9.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_2522.txt" />
      <None Include="Assets\LeapLogs\SHREC\111.txt" />
