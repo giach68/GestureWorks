@@ -1297,7 +1297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.8518677, y: -8.700012}
+  m_AnchoredPosition: {x: -2.8261, y: -4.3718}
   m_SizeDelta: {x: 972.66235, y: 48.89142}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &637036114
@@ -2314,8 +2314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.426, y: 0}
-  m_SizeDelta: {x: 1006.8518, y: 57.63501}
+  m_AnchoredPosition: {x: -0.00086927, y: 0}
+  m_SizeDelta: {x: 1002.0017, y: 57.63501}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1319187549
 MonoBehaviour:
@@ -2838,10 +2838,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2b8f4b5db8ec4498d3f2ebfa88d814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acquisitionSecondsTimer: 15
+  acquisitionSecondsTimer: 5
   acquisitionPagePanel: {fileID: 1724525302}
   gestureNameText: {fileID: 637036114}
   gestureAcquisitionTimer: {fileID: 1764226419}
+  gestureNamesList:
+  - gesto 1
+  - gesto 2
+  - gesto 3
+  - gesto 4
 --- !u!1 &1743407105
 GameObject:
   m_ObjectHideFlags: 0

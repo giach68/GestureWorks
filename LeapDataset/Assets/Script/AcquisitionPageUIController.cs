@@ -10,9 +10,13 @@ public class AcquisitionPageUIController : MonoBehaviour
     public GameObject acquisitionPagePanel;
     public TextMeshProUGUI gestureNameText;
     public TextMeshProUGUI gestureAcquisitionTimer;
+    public List<string> gestureNamesList = new List<string>();
 
     private int secondsLeft;
     private Stopwatch stopWatch;
+    private GameObject recorderGameObject;
+    private Recorder recorder;
+    private int gestureNamesIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +24,20 @@ public class AcquisitionPageUIController : MonoBehaviour
         stopWatch = new Stopwatch();
         stopWatch.Start();
         secondsLeft = acquisitionSecondsTimer;
-        SetTimerText("Starting gesture acquisition in:  ", secondsLeft, gestureAcquisitionTimer);
+        SetTimerText("Starting gesture acquisition in: ", secondsLeft, gestureAcquisitionTimer);
+
+        // Get recorder object
+        recorderGameObject = GameObject.Find("Recorder");
+        recorder = recorderGameObject.GetComponent<Recorder>();
+
+        // Set first gesture name
+        gestureNameText.text = "Gesture: " + gestureNamesList[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*// If the stopwatch is not started
+        /*// If the stopwatch is not running
         if (!stopWatch.IsRunning)
         {
             stopWatch.Start();
@@ -38,9 +49,20 @@ public class AcquisitionPageUIController : MonoBehaviour
         if (secondsLeft == 0)
         {
             stopWatch.Stop();
+            secondsLeft = acquisitionSecondsTimer;
+            //recorder.Start();
+
+            // If the index is not already out of the list (-1 on the count because the index starts from 0)
+            if (gestureNamesIndex != gestureNamesList.Count - 1)
+            {
+                // Update gesture name list index
+                gestureNameText.text = "Gesture: " + gestureNamesList[++gestureNamesIndex];
+
+                stopWatch.Start();
+            }
         }
     }
-    
+
     private int UpdateTextOneSecondElapsed(string text, int secondsLeft, TextMeshProUGUI textMeshToUpdate)
     {
         if (stopWatch.ElapsedMilliseconds >= 1000L)

@@ -22,7 +22,6 @@ public class InitialPageUIController : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        // ------ INITIAL PAGE
         // Set initial countdown
         stopWatch = new Stopwatch();
         stopWatch.Start();
