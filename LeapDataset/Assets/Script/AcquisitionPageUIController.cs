@@ -10,7 +10,8 @@ public class AcquisitionPageUIController : MonoBehaviour
     public GameObject acquisitionPagePanel;
     public TextMeshProUGUI gestureNameText;
     public TextMeshProUGUI gestureAcquisitionTimer;
-    public List<string> gestureNamesList = new List<string>();
+    //public List<string> gestureNamesList = new List<string>();
+    public List<AcquisitionDisplayInfo> gestureNamesList;// = new List<AcquisitionDisplayInfo>();
 
     private int secondsLeft;
     private Stopwatch stopWatch;
@@ -31,7 +32,7 @@ public class AcquisitionPageUIController : MonoBehaviour
         recorder = recorderGameObject.GetComponent<Recorder>();
 
         // Set first gesture name
-        gestureNameText.text = "Gesture: " + gestureNamesList[0];
+        gestureNameText.text = "Gesture: " + gestureNamesList[0].GestureName;
     }
 
     // Update is called once per frame
@@ -56,7 +57,7 @@ public class AcquisitionPageUIController : MonoBehaviour
             if (gestureNamesIndex != gestureNamesList.Count - 1)
             {
                 // Update gesture name list index
-                gestureNameText.text = "Gesture: " + gestureNamesList[++gestureNamesIndex];
+                gestureNameText.text = "Gesture: " + gestureNamesList[++gestureNamesIndex].GestureName;
 
                 stopWatch.Start();
             }

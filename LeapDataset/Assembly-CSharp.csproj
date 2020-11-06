@@ -257,8 +257,10 @@
      <Compile Include="Assets\RockVR\Video\Scripts\VideoCapture.cs" />
      <Compile Include="Assets\RockVR\Video\Scripts\VideoCaptureCtrl.cs" />
      <Compile Include="Assets\RockVR\Video\Scripts\VideoPlayer.cs" />
+     <Compile Include="Assets\Script\AcquisitionDisplayInfo.cs" />
      <Compile Include="Assets\Script\AcquisitionPageUIController.cs" />
      <Compile Include="Assets\Script\FileLogger.cs" />
+     <Compile Include="Assets\Script\GetWristPosition.cs" />
      <Compile Include="Assets\Script\HandEnum.cs" />
      <Compile Include="Assets\Script\HandPlayer.cs" />
      <Compile Include="Assets\Script\InitialPageUIController.cs" />
