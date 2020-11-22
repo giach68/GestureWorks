@@ -1,0 +1,166 @@
+﻿# Configuration file for gesture recognition
+
+# File structure: each element in the list (-) is a gesture configuration and has the following structure:
+
+# gestureId: string. An internal name used as the key (it's unique and you cannot use the same name for more than one gesture)
+# gestureNameInSequence: string. This is the gesture name used in the sequence file, so make sure that they are the same (case sensitive)
+# gestureDisplayName: string. Name displayed to the user in the application
+# gestureDescription: string. Description displayed to the user in the application
+# timerDuration: int. Duration of the timer for the user acquisition, in seconds
+# videoFileName: path to the video gesture displayed to the user in the application
+
+# You can add a new gesture to the list by adding a new element using "-" and the same attributes as the others elements.
+
+#ctrl + / commenti blocchi
+- 
+ gestureId: gestureOne
+ gestureNameInSequence: ONE
+ gestureDisplayName: one
+ gestureDescription: "Thumb is raised while all the other fingers are closed"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureTwo
+ gestureNameInSequence: TWO
+ gestureDisplayName: two
+ gestureDescription: "The index and the middle finger are raised, other fingers are closed"
+ timerDuration: 6
+ videoFileName: path/to/the/video.mp4
+
+- 
+ gestureId: gestureThree
+ gestureNameInSequence: THREE
+ gestureDisplayName: three
+ gestureDescription: "Index, middle and thumb raised, other fingers closed"
+ timerDuration: 7
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureFour
+ gestureNameInSequence: FOUR
+ gestureDisplayName: four
+ gestureDescription: "Thumb closed and others fingers raised"
+ timerDuration: 8
+ videoFileName: path/to/the/video.mp4
+
+- 
+ gestureId: gestureFive
+ gestureNameInSequence: OK
+ gestureDisplayName: ok
+ gestureDescription: "All the fingers are raised, while the index and thumb are closed in order to shape a circle"
+ timerDuration: 1
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureSix
+ gestureNameInSequence: MENU
+ gestureDisplayName: menu
+ gestureDescription: "The palm faces the users, all the fingers are raised and well opened"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+- 
+ gestureId: gestureSeven
+ gestureNameInSequence: POINTING
+ gestureDisplayName: pointing
+ gestureDescription: "Index raised to point something, the others fingers are closed (at least one second)"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureEight
+ gestureNameInSequence: LEFT
+ gestureDisplayName: swipe left
+ gestureDescription: "The hand moves to left"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureNine
+ gestureNameInSequence: RIGHT
+ gestureDisplayName: swipe right
+ gestureDescription: "The hand moves to right"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureTen
+ gestureNameInSequence: CIRCLE
+ gestureDisplayName: circle
+ gestureDescription: "The hand draws a letter o"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureEleven
+ gestureNameInSequence: V
+ gestureDisplayName: swipe v
+ gestureDescription: "The hand draws a letter v"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureTwelve
+ gestureNameInSequence: CROSS
+ gestureDisplayName: cross
+ gestureDescription: "The hand does a cross"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureThirteen
+ gestureNameInSequence: GRAB
+ gestureDisplayName: grab
+ gestureDescription: "All the fingers close together like if they were holding an object"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureFourteen
+ gestureNameInSequence: EXPAND
+ gestureDisplayName: expand
+ gestureDescription: "All the fingers raise together"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureFifteen
+ gestureNameInSequence: PINCH
+ gestureDisplayName: pinch
+ gestureDescription: "The index touches the thumb while the others fingers are closed"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureSixteen
+ gestureNameInSequence: TAP
+ gestureDisplayName: tap
+ gestureDescription: "The index moves like if it was pushing a button"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureSeventeen
+ gestureNameInSequence: DENY
+ gestureDisplayName: deny
+ gestureDescription: "The index is rased and moves left and right, the others fingers are closed"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+-
+ gestureId: gestureEigtheen
+ gestureNameInSequence: KNOB
+ gestureDisplayName: knob
+ gestureDescription: "The hand moves like it's holding a sphere knob and opening a door by rotating it"
+ timerDuration: 5
+ videoFileName: path/to/the/video.mp4
+
+# template
+#-
+# gestureId: gesture
+# gestureNameInSequence: 
+# gestureDisplayName: 
+# gestureDescription: ""
+# timerDuration: 5
+# videoFileName: path/to/the/video.mp4

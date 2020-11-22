@@ -311,6 +311,9 @@
  <Reference Include="Unity.Analytics.StandardEvents">
  <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
+ <Reference Include="YamlDotNet">
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Assets/Plugins/YamlDotNet/YamlDotNet.dll</HintPath>
+ </Reference>
  <Reference Include="nunit.framework">
  <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>

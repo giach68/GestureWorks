@@ -6,33 +6,37 @@ using System.Diagnostics;
 
 public class AcquisitionPageUIController : MonoBehaviour
 {
-    public int acquisitionSecondsTimer;
+    //public int acquisitionSecondsTimer;
     public GameObject acquisitionPagePanel;
     public TextMeshProUGUI gestureNameText;
     public TextMeshProUGUI gestureAcquisitionTimer;
     //public List<string> gestureNamesList = new List<string>();
-    public List<AcquisitionDisplayInfo> gestureNamesList;// = new List<AcquisitionDisplayInfo>();
+    //public List<AcquisitionDisplayInfo> gestureNamesList;// = new List<AcquisitionDisplayInfo>();
 
     private int secondsLeft;
     private Stopwatch stopWatch;
     private GameObject recorderGameObject;
     private Recorder recorder;
-    private int gestureNamesIndex = 0;
+    private int gestureDatasetIndex = 0;
+    private List<Gesture> gestureDatasetList;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Set gesture dataset list using the configuration file
+        YAMLParserTest yamlParser = new YAMLParserTest();
+        gestureDatasetList = yamlParser.DeserializeGestureDataset(@".\Assets\Script\gestureConfiguration.yaml");
+
+        //Set first gesture information
         stopWatch = new Stopwatch();
         stopWatch.Start();
-        secondsLeft = acquisitionSecondsTimer;
+        secondsLeft = gestureDatasetList[0].timerDuration; // Set first gesture timer
+        gestureNameText.text = "Gesture: " + gestureDatasetList[0].gestureDisplayName; // Set first gesture name
         SetTimerText("Starting gesture acquisition in: ", secondsLeft, gestureAcquisitionTimer);
 
         // Get recorder object
         recorderGameObject = GameObject.Find("Recorder");
         recorder = recorderGameObject.GetComponent<Recorder>();
-
-        // Set first gesture name
-        gestureNameText.text = "Gesture: " + gestureNamesList[0].GestureName;
     }
 
     // Update is called once per frame
@@ -49,15 +53,20 @@ public class AcquisitionPageUIController : MonoBehaviour
 
         if (secondsLeft == 0)
         {
+            /*
+             secondsLeft = gestureDatasetList[0].timerDuration; // Set first gesture timer
+            gestureNameText.text = "Gesture: " + gestureDatasetList[0].gestureDisplayName; // Set first gesture name
+            */
+
             stopWatch.Stop();
-            secondsLeft = acquisitionSecondsTimer;
+            secondsLeft = gestureDatasetList[gestureDatasetIndex].timerDuration;
             //recorder.Start();
 
             // If the index is not already out of the list (-1 on the count because the index starts from 0)
-            if (gestureNamesIndex != gestureNamesList.Count - 1)
+            if (gestureDatasetIndex != gestureDatasetList.Count - 1)
             {
                 // Update gesture name list index
-                gestureNameText.text = "Gesture: " + gestureNamesList[++gestureNamesIndex].GestureName;
+                gestureNameText.text = "Gesture: " + gestureDatasetList[++gestureDatasetIndex].gestureDisplayName;
 
                 stopWatch.Start();
             }

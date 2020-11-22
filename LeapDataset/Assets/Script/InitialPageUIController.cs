@@ -53,7 +53,7 @@ public class InitialPageUIController : MonoBehaviour
             // Activate acquisition panel and enable acquisitionPanel script
             acquisitionPagePanel.SetActive(true);
             acquisitionPageController.enabled = true;
-        }        
+        }
     }    
 
     private int UpdateTextOneSecondElapsed(string text, int secondsLeft, TextMeshProUGUI textMeshToUpdate)
