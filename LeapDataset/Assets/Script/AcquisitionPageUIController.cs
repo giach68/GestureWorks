@@ -3,40 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Diagnostics;
+using System;
+
+//  UnityEngine.Debug.Log();
 
 public class AcquisitionPageUIController : MonoBehaviour
 {
-    //public int acquisitionSecondsTimer;
+    public const string ConfigFilePath = @".\Assets\Script\gestureConfiguration.yaml";
+
     public GameObject acquisitionPagePanel;
     public TextMeshProUGUI gestureNameText;
-    public TextMeshProUGUI gestureAcquisitionTimer;
-    //public List<string> gestureNamesList = new List<string>();
+    public TextAsset sequenceFile;
     //public List<AcquisitionDisplayInfo> gestureNamesList;// = new List<AcquisitionDisplayInfo>();
 
     private int secondsLeft;
     private Stopwatch stopWatch;
     private GameObject recorderGameObject;
     private Recorder recorder;
-    private int gestureDatasetIndex = 0;
+    private int gestureSequenceIndex = 0;
     private List<Gesture> gestureDatasetList;
+    private string[] gestureSequenceStringArray;
+
+    //TODO: manage errors
+    bool DisplayGestureInformation(string currentGestureNameInSequence)
+    {
+        // Search for the gesture where the sequence name is the same as the gesture read in the file
+        UnityEngine.Debug.Log(currentGestureNameInSequence);
+
+        foreach (Gesture ciao in gestureDatasetList)
+            UnityEngine.Debug.Log(ciao);
+
+        Gesture currentGesture = gestureDatasetList.Find(gesture => gesture.gestureNameInSequence == currentGestureNameInSequence);
+
+        //Gesture currentGesture = gestureDatasetList.Find(delegate (Gesture r) {
+        //    return r.gestureNameInSequence == currentGestureNameInSequence;
+        //});
+        
+        UnityEngine.Debug.Log(currentGesture);
+
+        if (!(currentGesture is null))
+        {
+            secondsLeft = currentGesture.timerDuration;
+            UnityEngine.Debug.Log(secondsLeft);
+            gestureNameText.text = "Gesture " + currentGesture.gestureDisplayName;
+
+            return true; //found
+        }
+
+        return false; //not found
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         //Set gesture dataset list using the configuration file
-        YAMLParserTest yamlParser = new YAMLParserTest();
-        gestureDatasetList = yamlParser.DeserializeGestureDataset(@".\Assets\Script\gestureConfiguration.yaml");
+        YAMLParser yamlParser = new YAMLParser();
+        gestureDatasetList = yamlParser.DeserializeGestureDataset(@ConfigFilePath);
+
+        //Set gesture sequence array using a sequence file
+        gestureSequenceStringArray = sequenceFile.text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
         //Set first gesture information
+        DisplayGestureInformation(gestureSequenceStringArray[0]);
         stopWatch = new Stopwatch();
         stopWatch.Start();
-        secondsLeft = gestureDatasetList[0].timerDuration; // Set first gesture timer
-        gestureNameText.text = "Gesture: " + gestureDatasetList[0].gestureDisplayName; // Set first gesture name
-        SetTimerText("Starting gesture acquisition in: ", secondsLeft, gestureAcquisitionTimer);
 
         // Get recorder object
         recorderGameObject = GameObject.Find("Recorder");
-        recorder = recorderGameObject.GetComponent<Recorder>();
+        recorder = recorderGameObject.GetComponent<Recorder>();      
     }
 
     // Update is called once per frame
@@ -49,40 +83,27 @@ public class AcquisitionPageUIController : MonoBehaviour
             secondsLeft = acquisitionSecondsTimer;
         }*/
 
-        secondsLeft = UpdateTextOneSecondElapsed("Starting gesture acquisition in: ", secondsLeft, gestureAcquisitionTimer);
-
         if (secondsLeft == 0)
         {
-            /*
-             secondsLeft = gestureDatasetList[0].timerDuration; // Set first gesture timer
-            gestureNameText.text = "Gesture: " + gestureDatasetList[0].gestureDisplayName; // Set first gesture name
-            */
-
             stopWatch.Stop();
-            secondsLeft = gestureDatasetList[gestureDatasetIndex].timerDuration;
             //recorder.Start();
 
             // If the index is not already out of the list (-1 on the count because the index starts from 0)
-            if (gestureDatasetIndex != gestureDatasetList.Count - 1)
+            if (gestureSequenceIndex != gestureSequenceStringArray.Length - 1)
             {
                 // Update gesture name list index
-                gestureNameText.text = "Gesture: " + gestureDatasetList[++gestureDatasetIndex].gestureDisplayName;
-
+                DisplayGestureInformation(gestureSequenceStringArray[++gestureSequenceIndex]);
                 stopWatch.Start();
             }
         }
-    }
 
-    private int UpdateTextOneSecondElapsed(string text, int secondsLeft, TextMeshProUGUI textMeshToUpdate)
-    {
         if (stopWatch.ElapsedMilliseconds >= 1000L)
         {
             secondsLeft--;
-            SetTimerText(text, secondsLeft, textMeshToUpdate);
             stopWatch.Restart();
         }
 
-        return secondsLeft;
+        //UnityEngine.Debug.Log(secondsLeft);
     }
 
     /// <summary>

@@ -2873,17 +2873,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2b8f4b5db8ec4498d3f2ebfa88d814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acquisitionSecondsTimer: 5
   acquisitionPagePanel: {fileID: 1724525302}
   gestureNameText: {fileID: 637036114}
-  gestureAcquisitionTimer: {fileID: 1764226419}
-  gestureNamesList:
-  - gestureName: gesto1
-    gestureVideoPath: 
-  - gestureName: gesto2
-    gestureVideoPath: 
-  - gestureName: gesto3
-    gestureVideoPath: 
+  sequenceFile: {fileID: 4900000, guid: ae42cb847ead8bc45b54819d9cf5b2f7, type: 3}
 --- !u!1 &1743407105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,7 +2938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1764226418
 RectTransform:
   m_ObjectHideFlags: 0

@@ -267,7 +267,7 @@
      <Compile Include="Assets\Script\InitialPageUIController.cs" />
      <Compile Include="Assets\Script\PosTracker.cs" />
      <Compile Include="Assets\Script\Recorder.cs" />
-     <Compile Include="Assets\Script\YAMLParserTest.cs" />
+     <Compile Include="Assets\Script\YAMLParser.cs" />
      <None Include="Assets\LeapLogs\test\25.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_12_1247.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_1_0200.txt" />
@@ -613,6 +613,7 @@
      <None Include="Assets\LeapMotion\Core\Shaders\ThresholdOverlay.shader" />
      <None Include="Assets\LeapLogs\SHREC\83.txt" />
      <None Include="Assets\LeapLogs\test\18.txt" />
+     <None Include="Assets\GesturesSequences\seq1.txt" />
      <None Include="Assets\LeapLogs\SHREC\60.txt" />
      <None Include="Assets\LeapLogs\test\6.txt" />
      <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_2704.txt" />
@@ -828,6 +829,9 @@
  <Reference Include="UnityEditor">
  <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
  </Reference>
+ <Reference Include="YamlDotNet">
+ <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Assets/Plugins/YamlDotNet/YamlDotNet.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Analytics.Editor">
  <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
@@ -836,9 +840,6 @@
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
  <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
- </Reference>
- <Reference Include="YamlDotNet">
- <HintPath>D:/Università/Tirocinio Triennale HandGestures/GestureWorks/LeapDataset/Assets/Plugins/YamlDotNet/YamlDotNet.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
