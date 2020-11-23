@@ -1314,8 +1314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 972.66235, y: 48.89142}
+  m_AnchoredPosition: {x: 0, y: -10.627}
+  m_SizeDelta: {x: 972.66235, y: 36.38138}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &637036114
 MonoBehaviour:
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gesture: one'
+  m_text: 'Gesture:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1402,13 +1402,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 34.83484, y: 0, z: 0, w: 0}
+  m_margin: {x: 27.328796, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 637036114}
-    characterCount: 12
+    characterCount: 8
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1737,7 +1737,7 @@ GameObject:
   - component: {fileID: 830420392}
   - component: {fileID: 830420391}
   m_Layer: 5
-  m_Name: GestureDirections
+  m_Name: GestureDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1757,11 +1757,11 @@ RectTransform:
   m_Father: {fileID: 1724525303}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -88.995, y: 0}
-  m_SizeDelta: {x: 347.43787, y: 35.58406}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 23.419, y: 8.1216}
+  m_SizeDelta: {x: 955.16235, y: 70.61218}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &830420391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Execute the gesture as shown
+  m_text: Description
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 516
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1850,10 +1850,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 830420391}
-    characterCount: 28
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -2258,7 +2258,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -0.000022888, y: 0}
-  m_SizeDelta: {x: 1145, y: 41.12851}
+  m_SizeDelta: {x: 1145, y: 86.85544}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1304783340
 MonoBehaviour:
@@ -2703,7 +2703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1665647883
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2798,7 +2798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1724525303
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2876,6 +2876,7 @@ MonoBehaviour:
   acquisitionPagePanel: {fileID: 1724525302}
   gestureNameText: {fileID: 637036114}
   sequenceFile: {fileID: 4900000, guid: ae42cb847ead8bc45b54819d9cf5b2f7, type: 3}
+  gestureDescription: {fileID: 830420391}
 --- !u!1 &1743407105
 GameObject:
   m_ObjectHideFlags: 0

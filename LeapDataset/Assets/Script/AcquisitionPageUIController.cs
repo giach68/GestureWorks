@@ -14,6 +14,7 @@ public class AcquisitionPageUIController : MonoBehaviour
     public GameObject acquisitionPagePanel;
     public TextMeshProUGUI gestureNameText;
     public TextAsset sequenceFile;
+    public TextMeshProUGUI gestureDescription;
     //public List<AcquisitionDisplayInfo> gestureNamesList;// = new List<AcquisitionDisplayInfo>();
 
     private int secondsLeft;
@@ -23,35 +24,6 @@ public class AcquisitionPageUIController : MonoBehaviour
     private int gestureSequenceIndex = 0;
     private List<Gesture> gestureDatasetList;
     private string[] gestureSequenceStringArray;
-
-    //TODO: manage errors
-    bool DisplayGestureInformation(string currentGestureNameInSequence)
-    {
-        // Search for the gesture where the sequence name is the same as the gesture read in the file
-        UnityEngine.Debug.Log(currentGestureNameInSequence);
-
-        foreach (Gesture ciao in gestureDatasetList)
-            UnityEngine.Debug.Log(ciao);
-
-        Gesture currentGesture = gestureDatasetList.Find(gesture => gesture.gestureNameInSequence == currentGestureNameInSequence);
-
-        //Gesture currentGesture = gestureDatasetList.Find(delegate (Gesture r) {
-        //    return r.gestureNameInSequence == currentGestureNameInSequence;
-        //});
-        
-        UnityEngine.Debug.Log(currentGesture);
-
-        if (!(currentGesture is null))
-        {
-            secondsLeft = currentGesture.timerDuration;
-            UnityEngine.Debug.Log(secondsLeft);
-            gestureNameText.text = "Gesture " + currentGesture.gestureDisplayName;
-
-            return true; //found
-        }
-
-        return false; //not found
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -116,4 +88,23 @@ public class AcquisitionPageUIController : MonoBehaviour
     {
         textMeshToUpdate.text = text + secondsLeft.ToString() + " seconds";
     }
+
+    //TODO: manage errors
+    bool DisplayGestureInformation(string currentGestureNameInSequence)
+    {
+        // Search for the gesture where the sequence name is the same as the gesture read in the file
+        Gesture currentGesture = gestureDatasetList.Find(gesture => gesture.gestureNameInSequence == currentGestureNameInSequence);
+
+        if (!(currentGesture is null))
+        {
+            secondsLeft = currentGesture.timerDuration;
+            gestureNameText.text = "Gesture " + currentGesture.gestureDisplayName;
+            gestureDescription.text = currentGesture.gestureDescription;
+
+            return true; //found
+        }
+
+        return false; //not found
+    }
+
 }
