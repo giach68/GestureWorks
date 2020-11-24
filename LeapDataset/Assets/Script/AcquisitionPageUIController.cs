@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using System.Diagnostics;
 using System;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 //  UnityEngine.Debug.Log();
 
@@ -15,6 +17,8 @@ public class AcquisitionPageUIController : MonoBehaviour
     public TextMeshProUGUI gestureNameText;
     public TextAsset sequenceFile;
     public TextMeshProUGUI gestureDescription;
+    public VideoPlayer videoPlayer;
+    public GameObject finalPagePanel;
     //public List<AcquisitionDisplayInfo> gestureNamesList;// = new List<AcquisitionDisplayInfo>();
 
     private int secondsLeft;
@@ -42,7 +46,7 @@ public class AcquisitionPageUIController : MonoBehaviour
 
         // Get recorder object
         recorderGameObject = GameObject.Find("Recorder");
-        recorder = recorderGameObject.GetComponent<Recorder>();      
+        recorder = recorderGameObject.GetComponent<Recorder>();
     }
 
     // Update is called once per frame
@@ -55,10 +59,11 @@ public class AcquisitionPageUIController : MonoBehaviour
             secondsLeft = acquisitionSecondsTimer;
         }*/
 
+        recorder.Start();
+
         if (secondsLeft == 0)
         {
             stopWatch.Stop();
-            //recorder.Start();
 
             // If the index is not already out of the list (-1 on the count because the index starts from 0)
             if (gestureSequenceIndex != gestureSequenceStringArray.Length - 1)
@@ -66,6 +71,15 @@ public class AcquisitionPageUIController : MonoBehaviour
                 // Update gesture name list index
                 DisplayGestureInformation(gestureSequenceStringArray[++gestureSequenceIndex]);
                 stopWatch.Start();
+            }
+            else
+            {
+                // Hide the panel by inactivating it
+                acquisitionPagePanel.SetActive(false);               
+
+                // Activate acquisition panel and enable acquisitionPanel script
+                finalPagePanel.SetActive(true);
+                //acquisitionPageController.enabled = true; da non usare finchè non ho controller per la pagina finale
             }
         }
 
@@ -100,6 +114,7 @@ public class AcquisitionPageUIController : MonoBehaviour
             secondsLeft = currentGesture.timerDuration;
             gestureNameText.text = "Gesture " + currentGesture.gestureDisplayName;
             gestureDescription.text = currentGesture.gestureDescription;
+            videoPlayer.url = @".\Assets\VideoPlayer\" + currentGesture.videoFileName;
 
             return true; //found
         }

@@ -18,7 +18,7 @@
  gestureDisplayName: one
  gestureDescription: "Thumb is raised while all the other fingers are closed"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "1 gesto uno.mp4"
 
 -
  gestureId: gestureTwo
@@ -26,7 +26,7 @@
  gestureDisplayName: two
  gestureDescription: "The index and the middle finger are raised, other fingers are closed"
  timerDuration: 6
- videoFileName: path/to/the/video.mp4
+ videoFileName: "2 gesto due.mp4"
 
 - 
  gestureId: gestureThree
@@ -34,7 +34,7 @@
  gestureDisplayName: three
  gestureDescription: "Index, middle and thumb raised, other fingers closed"
  timerDuration: 7
- videoFileName: path/to/the/video.mp4
+ videoFileName: "3 gesto tre.mp4"
 
 -
  gestureId: gestureFour
@@ -42,7 +42,7 @@
  gestureDisplayName: four
  gestureDescription: "Thumb closed and others fingers raised"
  timerDuration: 8
- videoFileName: path/to/the/video.mp4
+ videoFileName: "4 gesto quattro.mp4"
 
 - 
  gestureId: gestureFive
@@ -50,7 +50,7 @@
  gestureDisplayName: ok
  gestureDescription: "All the fingers are raised, while the index and thumb are closed in order to shape a circle"
  timerDuration: 1
- videoFileName: path/to/the/video.mp4
+ videoFileName: "5 gesto ok.mp4"
 
 -
  gestureId: gestureSix
@@ -58,7 +58,7 @@
  gestureDisplayName: menu
  gestureDescription: "The palm faces the users, all the fingers are raised and well opened"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "6a gesto menu.mp4"
 
 - 
  gestureId: gestureSeven
@@ -66,7 +66,7 @@
  gestureDisplayName: pointing
  gestureDescription: "Index raised to point something, the others fingers are closed (at least one second)"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "7 gesto pointing.mp4"
 
 -
  gestureId: gestureEight
@@ -74,7 +74,7 @@
  gestureDisplayName: swipe left
  gestureDescription: "The hand moves to left"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "8 gesto left.mp4"
 
 -
  gestureId: gestureNine
@@ -82,7 +82,7 @@
  gestureDisplayName: swipe right
  gestureDescription: "The hand moves to right"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "9 gesto right.mp4"
 
 -
  gestureId: gestureTen
@@ -90,7 +90,7 @@
  gestureDisplayName: circle
  gestureDescription: "The hand draws a letter o"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "10b gesto circle.mp4"
 
 -
  gestureId: gestureEleven
@@ -98,7 +98,7 @@
  gestureDisplayName: swipe v
  gestureDescription: "The hand draws a letter v"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "11 gesto v.mp4"
 
 -
  gestureId: gestureTwelve
@@ -106,7 +106,7 @@
  gestureDisplayName: cross
  gestureDescription: "The hand does a cross"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "12b gesto cross.mp4"
 
 -
  gestureId: gestureThirteen
@@ -114,7 +114,7 @@
  gestureDisplayName: grab
  gestureDescription: "All the fingers close together like if they were holding an object"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "13 gesto grab.mp4"
 
 -
  gestureId: gestureFourteen
@@ -122,7 +122,7 @@
  gestureDisplayName: expand
  gestureDescription: "All the fingers raise together"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "14 gesto expand.mp4"
 
 -
  gestureId: gestureFifteen
@@ -130,7 +130,7 @@
  gestureDisplayName: pinch
  gestureDescription: "The index touches the thumb while the others fingers are closed"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "15a gesto pinch.mp4"
 
 -
  gestureId: gestureSixteen
@@ -138,7 +138,7 @@
  gestureDisplayName: tap
  gestureDescription: "The index moves like if it was pushing a button"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "16a gesto tap.mp4"
 
 -
  gestureId: gestureSeventeen
@@ -146,7 +146,7 @@
  gestureDisplayName: deny
  gestureDescription: "The index is rased and moves left and right, the others fingers are closed"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "17 gesto deny.mp4"
 
 -
  gestureId: gestureEigtheen
@@ -154,7 +154,7 @@
  gestureDisplayName: knob
  gestureDescription: "The hand moves like it's holding a sphere knob and opening a door by rotating it"
  timerDuration: 5
- videoFileName: path/to/the/video.mp4
+ videoFileName: "18 gesto knob.mp4"
 
 # template
 #-

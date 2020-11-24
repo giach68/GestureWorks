@@ -6,8 +6,7 @@ using System.Diagnostics;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 public class InitialPageUIController : MonoBehaviour
-{
-    
+{    
     public int initialSecondsTimer;
     public GameObject initialPagePanel;
     public TextMeshProUGUI initialTimerTextMesh;
