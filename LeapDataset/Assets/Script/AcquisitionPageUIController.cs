@@ -47,20 +47,15 @@ public class AcquisitionPageUIController : MonoBehaviour
         // Get recorder object
         recorderGameObject = GameObject.Find("Recorder");
         recorder = recorderGameObject.GetComponent<Recorder>();
+
+        // Start recorder
+        recorder.enabled = true;
+        recorder.StartGesture(gestureSequenceStringArray[0]);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*// If the stopwatch is not running
-        if (!stopWatch.IsRunning)
-        {
-            stopWatch.Start();
-            secondsLeft = acquisitionSecondsTimer;
-        }*/
-
-        recorder.Start();
-
         if (secondsLeft == 0)
         {
             stopWatch.Stop();
@@ -68,12 +63,22 @@ public class AcquisitionPageUIController : MonoBehaviour
             // If the index is not already out of the list (-1 on the count because the index starts from 0)
             if (gestureSequenceIndex != gestureSequenceStringArray.Length - 1)
             {
+                gestureSequenceIndex++;
+
                 // Update gesture name list index
-                DisplayGestureInformation(gestureSequenceStringArray[++gestureSequenceIndex]);
+                DisplayGestureInformation(gestureSequenceStringArray[gestureSequenceIndex]);
                 stopWatch.Start();
+
+                // New gesture name to the recorder
+                recorder.EndGesture();
+                recorder.StartGesture(gestureSequenceStringArray[gestureSequenceIndex]);
             }
             else
             {
+                //Stop the recorder
+                recorder.EndGesture();
+                recorder.Stop();
+
                 // Hide the panel by inactivating it
                 acquisitionPagePanel.SetActive(false);               
 

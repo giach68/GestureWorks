@@ -30,20 +30,13 @@ public class PosTracker : MonoBehaviour
         frame_offset = LP.CurrentFrame.Id;
         timer = 0;
         CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
-        //output += " parse_left = " + (pos_left ? "true" : "false") + "\n";
-        //output += " parse_right = " + (pos_right ? "true" : "false") + "\n";
-        //output += " sampling_rate = " + sampling_rate.ToString() + "\n";
-        //output += " data format = 0(sx)/1(dx):palmpos(x;y;z)|palmquat(x,y,z,w)|thumbApos(x;y;z)|thumbAquat(x;y;z;w)|" +
-        //    "thumbBpos(x; y; z)|thumbBquat(x; y; z; w)|thumbEndpos(x;y;z)|thumbEndquat(x;y;z;w)|" +
-        //    "indexApos(x;y;z)|indexAquat(x;y;z;w)|indexBpos(x;y;z)|indexBquat(x;y;z;w)|indexCpos(x;y;z)|indexCquat(x;y;z;w)|" +
-        //    "indexEndpos(x;y;z)|indexEndquat(x;y;z;w)|middleApos(x;y;z)|middleAquat(x;y;z;w)|middleBpos(x;y;z)|middleBquat(x;y;z;w)|" +
-        //    "middleCpos(x;y;z)|middleCquat(x;y;z;w)|middleEndpos(x;y;z)|middleEndquat(x;y;z;w)|ringApos(x;y;z)|ringAquat(x;y;z;w)|" +
-        //    "ringBpos(x;y;z)|ringBquat(x;y;z;w)|ringCpos(x;y;z)|ringCquat(x;y;z;w)|ringEndpos(x;y;z)|ringEndquat(x;y;z;w)|" +
-        //    "pinkyApos(x;y;z)|pinkyAquat(x;y;z;w)|pinkyBpos(x;y;z)|pinkyBquat(x;y;z;w)|pinkyCpos(x;y;z)|pinkyCquat(x;y;z;w)|" +
-        //    "pinkyEndpos(x;y;z)|pinkyEndquat(x;y;z;w)|\n";
-        //output += "\n";
-        //output += "\n";
-        //output += "\n";
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (frame_offset == 0)
+            frame_offset = LP.CurrentFrame.Id;
     }
 
     public void SetFilePath(string folder, string fileName)
@@ -69,26 +62,11 @@ public class PosTracker : MonoBehaviour
         log.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (frame_offset == 0)
-            frame_offset = LP.CurrentFrame.Id;
-        //float check_time = Mathf.Round((Time.unscaledTime * (1.0f / sampling_rate))) / (1.0f / sampling_rate);
-        //if (check_time > timer)
-        //{
-        //    UpdateRecording();
-        //}
-
-    }
-
     public void UpdateRecording()
     {
         right = GameObject.Find("LoPoly Rigged Hand Right");
         left = GameObject.Find("LoPoly Rigged Hand Left");
-        //timer = Mathf.Round((Time.unscaledTime * (1.0f / sampling_rate))) / (1.0f / sampling_rate);
-        //Leap.Frame f = LP.CurrentFrame;
-        //output += " frame number #" + (LP.CurrentFrame.Id - frame_offset).ToString() + "\n";
+
         if (pos_left) 
             output += GetHandInfo(left, HandType.Left);
         if (pos_right) 
