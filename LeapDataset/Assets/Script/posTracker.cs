@@ -167,8 +167,10 @@ public class PosTracker : MonoBehaviour
             info = "???";
             info += id + ";";
             info += "invalid_hand;";
-            return info;
 
+            UnityEngine.Debug.Log("Invalid " + id + " hand");
+
+            return info;
         }
     }
 
@@ -329,6 +331,9 @@ public class PosTracker : MonoBehaviour
             info = "???";
             info += id + ";";
             info += "invalid_hand;";
+
+            UnityEngine.Debug.Log("Invalid " + id + " hand");
+
             return info;
         }
 

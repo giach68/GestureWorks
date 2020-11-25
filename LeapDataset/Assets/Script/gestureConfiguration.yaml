@@ -11,7 +11,6 @@
 
 # You can add a new gesture to the list by adding a new element using "-" and the same attributes as the others elements.
 
-#ctrl + / commenti blocchi
 - 
  gestureId: gestureOne
  gestureNameInSequence: ONE
@@ -156,6 +155,15 @@
  timerDuration: 5
  videoFileName: "18 gesto knob.mp4"
 
+# non gesto
+-
+ gestureId: nonGesture
+ gestureNameInSequence: NONGESTURE
+ gestureDisplayName: "non gesture"
+ gestureDescription: "Do whatever"
+ timerDuration: 5
+ videoFileName: ""
+
 # template
 #-
 # gestureId: gesture
@@ -163,4 +171,4 @@
 # gestureDisplayName: 
 # gestureDescription: ""
 # timerDuration: 5
-# videoFileName: path/to/the/video.mp4
+# videoFileName: path\\to\\the\\video.mp4 note the double slashes!
