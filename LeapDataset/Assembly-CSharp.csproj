@@ -285,6 +285,7 @@
     <None Include="Assets\RockVR\Video\Shaders\Cubemap2Equirectangular.shader" />
     <None Include="Assets\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
     <None Include="Assets\LeapLogs\SHREC\Pinch_02_14_1_5257.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_2709.txt" />
     <None Include="Assets\LeapLogs\7.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\LeapLogs\SHREC\112.txt" />
@@ -294,6 +295,7 @@
     <None Include="Assets\LeapLogs\SHREC\144.txt" />
     <None Include="Assets\LeapLogs\Interface\Slider\prova_02_14_3_3414.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_4307.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_1430.txt" />
     <None Include="Assets\LeapLogs\SHREC\102.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\LeapLogs\SHREC\127.txt" />
@@ -322,11 +324,14 @@
     <None Include="Assets\LeapLogs\sub1\action_02_03_11_29.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_10_4437.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_3142.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_1747.txt" />
     <None Include="Assets\LeapLogs\SHREC\100.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_20_11_5539.txt" />
     <None Include="Assets\LeapLogs\SHREC\Three_02_14_1_4225 (1).txt" />
     <None Include="Assets\LeapLogs\test\19.txt" />
     <None Include="Assets\LeapLogs\test\13.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_1947.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_2637.txt" />
     <None Include="Assets\LeapLogs\SHREC\48.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\LeapLogs\SHREC\37.txt" />
@@ -345,11 +350,14 @@
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_3453.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_2712.txt" />
     <None Include="Assets\LeapLogs\SHREC\SwipeRigth _02_14_3_0506.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_0133.txt" />
     <None Include="Assets\LeapLogs\SHREC\28.txt" />
     <None Include="Assets\LeapLogs\test\17.txt" />
     <None Include="Assets\LeapLogs\SHREC\140.txt" />
     <None Include="Assets\LeapLogs\SHREC\Grab_02_14_1_4855.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_4343.txt" />
     <None Include="Assets\LeapLogs\SHREC\101.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_3842.txt" />
     <None Include="Assets\LeapLogs\SHREC\61.txt" />
     <None Include="Assets\LeapLogs\SHREC\SwipeLeft_02_14_3_0334.txt" />
     <None Include="Assets\LeapLogs\SHREC\Five_02_14_1_4630.txt" />
@@ -372,9 +380,11 @@
     <None Include="Assets\LeapLogs\test\15.txt" />
     <None Include="Assets\LeapLogs\test\34.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_4236.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_2255.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_3051.txt" />
     <None Include="Assets\LeapLogs\SHREC\33.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_4547.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_2242.txt" />
     <None Include="Assets\LeapLogs\SHREC\139.txt" />
     <None Include="Assets\LeapLogs\14.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_6_4940.txt" />
@@ -405,7 +415,9 @@
     <None Include="Assets\LeapLogs\Interface\Slider\prova_02_14_3_3419.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_4345.txt" />
     <None Include="Assets\LeapLogs\SHREC\84.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_2526.txt" />
     <None Include="Assets\LeapLogs\SHREC\71.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_3456.txt" />
     <None Include="Assets\LeapLogs\SHREC\26.txt" />
     <None Include="Assets\LeapLogs\SHREC\128.txt" />
     <None Include="Assets\LeapLogs\SHREC\91.txt" />
@@ -450,6 +462,7 @@
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_6_4832.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_4242.txt" />
     <None Include="Assets\LeapLogs\SHREC\124.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_6_5441.txt" />
     <None Include="Assets\RockVR\Video\Shaders\CopyReverse.shader" />
     <None Include="Assets\LeapLogs\Interface\Manopola\prova_02_14_3_3152.txt" />
     <None Include="Assets\LeapLogs\SHREC\126.txt" />
@@ -491,13 +504,16 @@
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_1_0050.txt" />
     <None Include="Assets\LeapLogs\SHREC\Tap_02_14_1_5555.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_5359.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_4720.txt" />
     <None Include="Assets\LeapLogs\test\23.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_3132.txt" />
     <None Include="Assets\LeapLogs\SEQ_02_26_12_5850.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_2126.txt" />
     <None Include="Assets\LeapLogs\SHREC\23.txt" />
     <None Include="Assets\LeapLogs\SHREC\Four_02_14_1_4540.txt" />
     <None Include="Assets\LeapLogs\SHREC\O _02_14_3_1025.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_6_5616.txt" />
     <None Include="Assets\LeapLogs\SHREC\16.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\LeapLogs\Interface\Leva\prova_02_14_3_3825.txt" />
@@ -508,6 +524,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\LeapLogs\SHREC\V_02_14_3_0827.txt" />
     <None Include="Assets\LeapLogs\test\31.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_3423.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_1342.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_2450.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_5408.txt" />
@@ -569,6 +586,7 @@
     <None Include="Assets\LeapLogs\SHREC\One_02_11_5_10.txt" />
     <None Include="Assets\LeapLogs\5.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_1_0126.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_3540.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_10_2705.txt" />
     <None Include="Assets\LeapLogs\SHREC\19.txt" />
     <None Include="Assets\LeapLogs\SHREC\27.txt" />
@@ -619,6 +637,7 @@
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_11_4349.txt" />
     <None Include="Assets\LeapLogs\SHREC\79.txt" />
     <None Include="Assets\LeapLogs\SHREC\109.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_4242.txt" />
     <None Include="Assets\LeapLogs\SHREC\67.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_5201.txt" />
     <None Include="Assets\LeapLogs\SHREC\72.txt" />
@@ -634,6 +653,7 @@
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_5028.txt" />
     <None Include="Assets\LeapLogs\SHREC\Three_02_14_1_3913.txt" />
     <None Include="Assets\LeapLogs\Interface\Slider\prova_02_14_3_3424.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_2336.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_11_4137.txt" />
     <None Include="Assets\LeapLogs\test\35.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_2250.txt" />
@@ -658,8 +678,10 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\LeapLogs\SHREC\34.txt" />
     <None Include="Assets\LeapLogs\Interface\Leva\prova_02_14_3_3803.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_3235.txt" />
     <None Include="Assets\LeapLogs\SHREC\98.txt" />
     <None Include="Assets\LeapLogs\SHREC\89.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_0206.txt" />
     <None Include="Assets\LeapLogs\SHREC\One_02_14_1_3659.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_3955.txt" />
     <None Include="Assets\LeapLogs\sub1\Static1_02_11_4_40.txt" />
@@ -687,8 +709,10 @@
     <None Include="Assets\LeapLogs\SHREC\Pinch_02_14_1_5244.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\LeapLogs\SHREC\143.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_3059.txt" />
     <None Include="Assets\LeapLogs\SHREC\5.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_1405.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_1834.txt" />
     <None Include="Assets\LeapLogs\sub1\action_02_03_1_50.txt" />
     <None Include="Assets\LeapLogs\SHREC\62.txt" />
     <None Include="Assets\LeapLogs\SHREC\86.txt" />
@@ -701,6 +725,7 @@
     <None Include="Assets\LeapLogs\SHREC\8.txt" />
     <None Include="Assets\LeapLogs\SHREC\136.txt" />
     <None Include="Assets\LeapLogs\SHREC\SwipeRigth _02_14_3_0510.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_8_2421.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_6_4335.txt" />
     <None Include="Assets\LeapLogs\sub1\action_02_11_1_49.txt" />
     <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_25_10_3041.txt" />
@@ -710,6 +735,8 @@
     <None Include="Assets\LeapLogs\SHREC\9.txt" />
     <None Include="Assets\LeapLogs\OriginalSEQ\SEQ_02_26_12_2522.txt" />
     <None Include="Assets\LeapLogs\SHREC\111.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_6_5541.txt" />
+    <None Include="Assets\LeapLogs\Interface\ProveDeb\prova_11_27_7_2459.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
