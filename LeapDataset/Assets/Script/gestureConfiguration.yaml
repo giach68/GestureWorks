@@ -89,7 +89,7 @@
  gestureDisplayName: circle
  gestureDescription: "The hand draws a letter o"
  timerDuration: 5
- videoFileName: "10b gesto circle.mp4"
+ videoFileName: "10 gesto circle.mp4"
 
 -
  gestureId: gestureEleven
@@ -105,7 +105,7 @@
  gestureDisplayName: cross
  gestureDescription: "The hand does a cross"
  timerDuration: 5
- videoFileName: "12b gesto cross.mp4"
+ videoFileName: "12 gesto cross.mp4"
 
 -
  gestureId: gestureThirteen
