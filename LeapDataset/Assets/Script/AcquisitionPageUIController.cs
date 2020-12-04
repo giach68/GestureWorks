@@ -113,27 +113,7 @@ public class AcquisitionPageUIController : MonoBehaviour
 
                 // Set a sleep of tot sec (not the best way but is a short sleep)
                 //System.Threading.Thread.Sleep(secondsToWaitAfterAcquisition * 1000);
-                StartCoroutine(Wait());
-
-                // Read new sequence file
-                sequenceFileIndex++;
-                ReadSequenceFile(sequenceFileIndex);
-
-                // Print in Unity Console
-                UnityEngine.Debug.Log("Gestures in sequence file: " + string.Join(", ", gestureSequenceStringArray));
-
-                // Set first gesture information
-                DisplayGestureInformation(gestureSequenceStringArray[0]);
-                stopWatch.Reset();
-                stopWatch.Start();
-
-                // Start recorder
-                recorder.enabled = true;
-                recorder.Record();
-                recorder.StartGesture(gestureSequenceStringArray[0]);
-
-                // Hide the panel by deactivating it
-                finalPagePanel.SetActive(false);
+                StartCoroutine(WaitAndReset());
             }
             // If there are no more gestures in the current sequence and there are no more sequences to read
             else if (!AreThereGesturesToReadInSequence(gestureSequenceIndex) && !AreThereNewSequencesToRead(sequenceFileIndex))
@@ -214,8 +194,28 @@ public class AcquisitionPageUIController : MonoBehaviour
         return false; //not found
     }
 
-    IEnumerator Wait()
+    IEnumerator WaitAndReset()
     {
-        yield return new WaitForSeconds(5); //tipo crea figlio e aspetta che finisca
+        yield return new WaitForSeconds(5);
+
+        // Read new sequence file
+        sequenceFileIndex++;
+        ReadSequenceFile(sequenceFileIndex);
+
+        // Print in Unity Console
+        UnityEngine.Debug.Log("Gestures in sequence file: " + string.Join(", ", gestureSequenceStringArray));
+
+        // Set first gesture information
+        DisplayGestureInformation(gestureSequenceStringArray[0]);
+        stopWatch.Reset();
+        stopWatch.Start();
+
+        // Start recorder
+        recorder.enabled = true;
+        recorder.Record();
+        recorder.StartGesture(gestureSequenceStringArray[0]);
+
+        // Hide the panel by deactivating it
+        finalPagePanel.SetActive(false);
     }
 }
