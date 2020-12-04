@@ -58,19 +58,4 @@ public class FileLogger
         buffer += "\n";
         return;
     }
-
-    /*public void newLine(string text)
-    {
-        buffer += "\n" + text;
-        return;
-    }*/
-
-    /*
-    public void newLineMarked(string text)
-    {
-        buffer += "\n%" + text;
-        return;
-    }*/
-
-
 }

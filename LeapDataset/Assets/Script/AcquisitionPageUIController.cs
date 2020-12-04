@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Diagnostics;
 using System;
+using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -16,12 +17,12 @@ public class AcquisitionPageUIController : MonoBehaviour
 
     public GameObject acquisitionPagePanel;
     public TextMeshProUGUI gestureNameText;
-    public TextAsset sequenceFile;
     public TextMeshProUGUI gestureDescription;
     public VideoPlayer videoPlayer;
     public GameObject finalPagePanel;
     public bool changeColorOnNewGesture;
-    //public List<AcquisitionDisplayInfo> gestureNamesList;// = new List<AcquisitionDisplayInfo>();
+    public string sequenceFilesPath;
+    public int secondsToWaitAfterAcquisition;
 
     private int secondsLeft;
     private Stopwatch stopWatch;
@@ -32,6 +33,9 @@ public class AcquisitionPageUIController : MonoBehaviour
     private Image topColorTitle;
     private Color originalTopColorTitle;
     private Color finishingGestureTopColorTitle = new Color(0.8784314f, 0.7411765f, 0.2431373f); // orange color
+    private string[] sequenceFilesNames;
+    private int sequenceFileIndex;
+    private FinalPageUIController finalPageController;
 
     // Start is called before the first frame update
     void Start()
@@ -40,28 +44,35 @@ public class AcquisitionPageUIController : MonoBehaviour
         YAMLParser yamlParser = new YAMLParser();
         gestureDatasetList = yamlParser.DeserializeGestureDataset(@ConfigFilePath);
 
-        // Set gesture sequence array using a sequence file
-        gestureSequenceStringArray = sequenceFile.text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+        // Get files from path
+        ReadFilesFromFolder(sequenceFilesPath);
+
+        // Read first sequence file 
+        ReadSequenceFile(0);
+
         // Print in Unity Console
         UnityEngine.Debug.Log("Gestures in sequence file: " + string.Join(", ", gestureSequenceStringArray));
-        
 
         // Get color title image
         topColorTitle = GameObject.Find("TopColorTitle").GetComponent<Image>();
         // Get original color bar title
         originalTopColorTitle = topColorTitle.color;
 
+        // Get mainAcquisitionPage object
+        finalPageController = finalPagePanel.GetComponent<FinalPageUIController>();
+
         // Get recorder object
         recorder = GameObject.Find("Recorder").GetComponent<Recorder>();
-
-        // Start recorder
-        recorder.enabled = true;
-        recorder.StartGesture(gestureSequenceStringArray[0]);
 
         // Set first gesture information
         DisplayGestureInformation(gestureSequenceStringArray[0]);
         stopWatch = new Stopwatch();
         stopWatch.Start();
+
+        // Start recorder
+        recorder.enabled = true;
+        recorder.Record();
+        recorder.StartGesture(gestureSequenceStringArray[0]);
     }
 
     // Update is called once per frame
@@ -71,8 +82,8 @@ public class AcquisitionPageUIController : MonoBehaviour
         {
             stopWatch.Stop();
 
-            // If the index is not already out of the list (-1 on the count because the index starts from 0)
-            if (gestureSequenceIndex != gestureSequenceStringArray.Length - 1)
+            // If there are still gestures to read from the current sequence
+            if (AreThereGesturesToReadInSequence(gestureSequenceIndex))
             {
                 gestureSequenceIndex++;
 
@@ -84,16 +95,60 @@ public class AcquisitionPageUIController : MonoBehaviour
                 recorder.EndGesture();
                 recorder.StartGesture(gestureSequenceStringArray[gestureSequenceIndex]);
             }
-            else
+            // If there are no more gestures in the current sequence and there is a new sequence to read
+            else if (!AreThereGesturesToReadInSequence(gestureSequenceIndex) && AreThereNewSequencesToRead(sequenceFileIndex))
             {
-                //Stop the recorder
+                // Stop the recorder
                 recorder.EndGesture();
                 recorder.Stop();
+                recorder.enabled = false;
 
-                // Hide the panel by inactivating it
+                // Activate final panel (final panel is above the acquisition panel, this one)
+                finalPageController.enabled = true;
+                finalPageController.ChangeMessage("Acquisition number " + sequenceFileIndex + 1 + " completed");
+                finalPagePanel.SetActive(true);
+
+                // Reset gesture sequence index
+                gestureSequenceIndex = 0;
+
+                // Set a sleep of tot sec (not the best way but is a short sleep)
+                //System.Threading.Thread.Sleep(secondsToWaitAfterAcquisition * 1000);
+                StartCoroutine(Wait());
+
+                // Read new sequence file
+                sequenceFileIndex++;
+                ReadSequenceFile(sequenceFileIndex);
+
+                // Print in Unity Console
+                UnityEngine.Debug.Log("Gestures in sequence file: " + string.Join(", ", gestureSequenceStringArray));
+
+                // Set first gesture information
+                DisplayGestureInformation(gestureSequenceStringArray[0]);
+                stopWatch.Reset();
+                stopWatch.Start();
+
+                // Start recorder
+                recorder.enabled = true;
+                recorder.Record();
+                recorder.StartGesture(gestureSequenceStringArray[0]);
+
+                // Hide the panel by deactivating it
+                finalPagePanel.SetActive(false);
+            }
+            // If there are no more gestures in the current sequence and there are no more sequences to read
+            else if (!AreThereGesturesToReadInSequence(gestureSequenceIndex) && !AreThereNewSequencesToRead(sequenceFileIndex))
+            {
+                // Stop the recorder
+                recorder.EndGesture();
+                recorder.Stop();
+                recorder.enabled = false;
+
+                // Hide the panel by deactivating it
                 acquisitionPagePanel.SetActive(false);
 
-                // Activate acquisition panel and enable acquisitionPanel script
+                // Activate final panel
+                finalPageController.enabled = true;
+                finalPageController.ChangeMessage("Acquisitions completed");
                 finalPagePanel.SetActive(true);
             }
         }
@@ -111,7 +166,28 @@ public class AcquisitionPageUIController : MonoBehaviour
         }
     }
 
-    //TODO: manage errors
+    bool AreThereGesturesToReadInSequence(int index)
+    {
+        // True if the index is NOT out of the list, so there are gestures left to read
+        return index != gestureSequenceStringArray.Length - 1; //(-1 on the count because the index starts from 0)
+    }
+
+    bool AreThereNewSequencesToRead(int index)
+    {
+        // True if the index is NOT out of the list, so there is at least a new sequence to read
+        return index != sequenceFilesNames.Length - 1; //(-1 on the count because the index starts from 0)
+    }
+
+    void ReadFilesFromFolder(string sequenceFilePath)
+    {
+        sequenceFilesNames = Directory.GetFiles(sequenceFilePath, "*.txt");
+    }
+
+    void ReadSequenceFile(int index)
+    {
+        gestureSequenceStringArray = File.ReadAllLines(sequenceFilesNames[index]);
+    }
+
     bool DisplayGestureInformation(string currentGestureNameInSequence)
     {
         // Search for the gesture where the sequence name is the same as the gesture read in the file
@@ -136,5 +212,10 @@ public class AcquisitionPageUIController : MonoBehaviour
         }
 
         return false; //not found
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5); //tipo crea figlio e aspetta che finisca
     }
 }

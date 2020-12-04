@@ -47,8 +47,6 @@ public class InitialPageUIController : MonoBehaviour
             stopWatch.Stop();
             // Hide the panel by inactivating it
             initialPagePanel.SetActive(false);
-            // Enable recorder
-            recorder.enabled = true;
             // Activate acquisition panel and enable acquisitionPanel script
             acquisitionPagePanel.SetActive(true);
             acquisitionPageController.enabled = true;

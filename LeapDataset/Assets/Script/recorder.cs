@@ -16,15 +16,11 @@ public class Recorder : MonoBehaviour
     private PosTracker pt;
     private Stopwatch stopWatch;
 
-    // Start is called before the first frame update
-    public void Start()
+    public void Awake()
     {
         GameObject leapRig = GameObject.Find("Leap Rig"); //prendo l'oggetto nella scena che si chiama Leap Rig
         pt = leapRig.GetComponent<PosTracker>(); //prendo il componente di tipo posTracker e lo metto in pt
         stopWatch = new Stopwatch();
-
-        // Start to record
-        Record();
     }
 
     // Update is called once per frame
