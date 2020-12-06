@@ -97,7 +97,7 @@ public class AcquisitionPageUIController : MonoBehaviour
                 recorder.StartGesture(gestureSequenceStringArray[gestureSequenceIndex]);
             }
             // If there are no more gestures in the current sequence and there is a new sequence to read
-            else if (!AreThereGesturesToReadInSequence(gestureSequenceIndex) && AreThereNewSequencesToRead(sequenceFileIndex))
+            else if (!AreThereGesturesToReadInSequence(gestureSequenceIndex) && AreThereNewSequencesToRead(sequenceFileIndex) && acquisitionCompleted)
             {
                 // Stop the recorder
                 recorder.EndGesture();
