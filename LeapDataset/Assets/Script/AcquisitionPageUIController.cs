@@ -36,6 +36,7 @@ public class AcquisitionPageUIController : MonoBehaviour
     private string[] sequenceFilesNames;
     private int sequenceFileIndex;
     private FinalPageUIController finalPageController;
+    private bool acquisitionCompleted = true;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +84,7 @@ public class AcquisitionPageUIController : MonoBehaviour
             stopWatch.Stop();
 
             // If there are still gestures to read from the current sequence
-            if (AreThereGesturesToReadInSequence(gestureSequenceIndex))
+            if (AreThereGesturesToReadInSequence(gestureSequenceIndex) && acquisitionCompleted)
             {
                 gestureSequenceIndex++;
 
@@ -105,15 +106,15 @@ public class AcquisitionPageUIController : MonoBehaviour
 
                 // Activate final panel (final panel is above the acquisition panel, this one)
                 finalPageController.enabled = true;
-                finalPageController.ChangeMessage("Acquisition number " + sequenceFileIndex + 1 + " completed");
+                finalPageController.ChangeMessage("Acquisition number " + (sequenceFileIndex + 1) + " completed");
                 finalPagePanel.SetActive(true);
 
                 // Reset gesture sequence index
                 gestureSequenceIndex = 0;
+                acquisitionCompleted = false;
 
-                // Set a sleep of tot sec (not the best way but is a short sleep)
-                //System.Threading.Thread.Sleep(secondsToWaitAfterAcquisition * 1000);
-                StartCoroutine(WaitAndReset());
+                // Set a sleep of tot sec
+                StartCoroutine(WaitAndReset(secondsToWaitAfterAcquisition));
             }
             // If there are no more gestures in the current sequence and there are no more sequences to read
             else if (!AreThereGesturesToReadInSequence(gestureSequenceIndex) && !AreThereNewSequencesToRead(sequenceFileIndex))
@@ -194,9 +195,9 @@ public class AcquisitionPageUIController : MonoBehaviour
         return false; //not found
     }
 
-    IEnumerator WaitAndReset()
+    IEnumerator WaitAndReset(int seconds)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(seconds);
 
         // Read new sequence file
         sequenceFileIndex++;
@@ -217,5 +218,7 @@ public class AcquisitionPageUIController : MonoBehaviour
 
         // Hide the panel by deactivating it
         finalPagePanel.SetActive(false);
+
+        acquisitionCompleted = true;
     }
 }
