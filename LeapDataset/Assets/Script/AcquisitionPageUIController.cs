@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using Random = System.Random;
 
 //  UnityEngine.Debug.Log();
 
@@ -24,7 +25,9 @@ public class AcquisitionPageUIController : MonoBehaviour
     public string sequenceFilesPath;
     public int secondsToWaitAfterAcquisition;
 
-    private int secondsLeft;
+    // Using centiseconds beacuse milliseconds are not counted accurately
+    // 1 second = 100 centiseconds
+    private int centisecondsLeft;
     private Stopwatch stopWatch;
     private Recorder recorder;
     private int gestureSequenceIndex = 0;
@@ -79,7 +82,7 @@ public class AcquisitionPageUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (secondsLeft == 0)
+        if (centisecondsLeft <= 0)
         {
             stopWatch.Stop();
 
@@ -133,16 +136,18 @@ public class AcquisitionPageUIController : MonoBehaviour
                 finalPagePanel.SetActive(true);
             }
         }
-        else if (secondsLeft == 1 && changeColorOnNewGesture)
+        // 1 second = 100 centiseconds
+        else if (centisecondsLeft == 100 && changeColorOnNewGesture)
         {
             // If "changeColorOnNewGesture" is true in the inspector, then change bar color to inform 
             // the user that the gesture acquisition is finishing
             topColorTitle.color = finishingGestureTopColorTitle;
         }
 
-        if (stopWatch.ElapsedMilliseconds >= 1000L)
+        // 10 ms = 1 centisecond
+        if (stopWatch.ElapsedMilliseconds >= 10L)
         {
-            secondsLeft--;
+            centisecondsLeft--;
             stopWatch.Restart();
         }
     }
@@ -176,7 +181,13 @@ public class AcquisitionPageUIController : MonoBehaviour
 
         if (!(currentGesture is null))
         {
-            secondsLeft = currentGesture.timerDuration;
+            if (currentGesture.gestureNameInSequence.Equals("NONGESTURE"))
+            {
+                centisecondsLeft = new Random().Next((currentGesture.timerDuration - 2) * 100, (currentGesture.timerDuration +1) * 100);
+            }
+            else
+                centisecondsLeft = currentGesture.timerDuration * 100;
+
             gestureNameText.text = "Gesture " + currentGesture.gestureDisplayName;
             gestureDescription.text = currentGesture.gestureDescription;
 

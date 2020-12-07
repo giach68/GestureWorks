@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 public class InitialPageUIController : MonoBehaviour
-{    
+{
     public int initialSecondsTimer;
     public GameObject initialPagePanel;
     public TextMeshProUGUI initialTimerTextMesh;
@@ -37,7 +37,7 @@ public class InitialPageUIController : MonoBehaviour
 
     // Update is called once per frame
     public void Update()
-    {        
+    {
         // Check and update initial countdown every second
         secondsLeft = UpdateTextOneSecondElapsed("Remaining seconds before starting acquisition: ", secondsLeft, initialTimerTextMesh);
 
@@ -51,7 +51,7 @@ public class InitialPageUIController : MonoBehaviour
             acquisitionPagePanel.SetActive(true);
             acquisitionPageController.enabled = true;
         }
-    }    
+    }
 
     private int UpdateTextOneSecondElapsed(string text, int secondsLeft, TextMeshProUGUI textMeshToUpdate)
     {

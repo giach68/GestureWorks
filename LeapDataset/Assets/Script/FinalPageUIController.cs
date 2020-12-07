@@ -10,17 +10,17 @@ public class FinalPageUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ChangeMessage(string message)
     {
-        FinalPagePanel.transform.Find("AcquisitionCompletedText").GetComponent<TMPro.TextMeshProUGUI>().text = message;       
+        FinalPagePanel.transform.Find("AcquisitionCompletedText").GetComponent<TMPro.TextMeshProUGUI>().text = message;
     }
 }
