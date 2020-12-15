@@ -1968,7 +1968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fd2d4565a45fc43911227552689ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: 30
+  freq: 50
   fileName: prova
   folder: Interface\ProveDeb
 --- !u!1 &830420389
@@ -2771,7 +2771,7 @@ MonoBehaviour:
   right: {fileID: 1816484944}
   pos_left: 0
   pos_right: 1
-  sampling_rate: 0.04
+  sampling_rate: 0.025
 --- !u!1 &1372119289
 GameObject:
   m_ObjectHideFlags: 0

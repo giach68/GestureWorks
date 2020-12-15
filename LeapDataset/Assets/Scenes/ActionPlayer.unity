@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4dd0ef69f99a4e4ba9ee6f928639b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: 9b74f9b32f5b22645b4b9788c771c081, type: 3}
+  file: {fileID: 4900000, guid: 19440a814a6d99b4da9c4306606051d3, type: 3}
   handRight: {fileID: 915382710}
   frameInterval: 70
   camera: {fileID: 243056094}

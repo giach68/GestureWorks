@@ -5,7 +5,7 @@ using Leap;
 using Leap.Unity;
 using System.Globalization;
 
-//raccoglie dati dalla mano
+// Gathers hands information
 public class PosTracker : MonoBehaviour
 {
     public FileLogger log= new FileLogger();
@@ -45,16 +45,16 @@ public class PosTracker : MonoBehaviour
         this.fileName = fileName;
     }
 
-    //chiamata da unity quando il componente è attivato (spunta)
-    //in questo caso, viene attivato da recorder (non è chiamato in automatico, ma è invocato da recorder quando si mette a true con pt.enabled = true)
+    // Called by Unity when the component is enabled
+    // In this case is enabled by the Recorder (invoked by recorder when we use pt.enabled = true)
     public void OnEnable()
     {
         //log.enabled = true;
         log.Enable(folder, fileName);
     }
 
-    //chiamata da unity quando il componente è disattivato (tolgo spunta)
-    //in questo caso, viene disattivato da recorder (non è chiamato in automatico, ma è invocato da recorder quando si mette a false con pt.enabled = false)
+    // Called by Unity when the component is disabled
+    // In this case is enabled by the Recorder (invoked by recorder when we use pt.enabled = false)
     public void OnDisable()
     {
         log.WriteData(output);
@@ -72,13 +72,13 @@ public class PosTracker : MonoBehaviour
         if (pos_right) 
             output += GetHandInfo(right, HandType.Right);
 
-        log.WriteData(output);
+        log.AddToLine(output);
         output = "";
     }
 
     public void StartGesture(string gesture)
     {
-        //scrivo inizio delimitazione gesto
+        // Write gesture start label
         string input = "##;" + gesture + ";##";
         log.AddToLine(input);
     }
@@ -88,7 +88,6 @@ public class PosTracker : MonoBehaviour
         StartGesture("##");
     }
 
-    //id: che mano è (0 sx, 1 dx), vedi invocazione
     string GetHandInfo(GameObject hand, HandType id)
     { 
         string info = "";
@@ -178,11 +177,11 @@ public class PosTracker : MonoBehaviour
     {
         string info = "";
 
-        //left
+        // Left
         if(id.Equals(HandType.Left) && hand != null)
         {
             if (finger.Equals("thumb")){
-                //thumb has one less node than the other fingers
+                // Thumb has one less node than the other fingers
                 for(int i=1; i<4; i++) {
                     info += GameObject.FindWithTag("Lt"+ i.ToString()).transform.position.x + ";" +
                             GameObject.FindWithTag("Lt" + i.ToString()).transform.position.y + ";" +
@@ -251,7 +250,7 @@ public class PosTracker : MonoBehaviour
                 }
             }
         }
-        //right
+        // Right
         else if(id.Equals(HandType.Right) && hand != null)
         {
             if (finger.Equals("thumb"))
@@ -325,7 +324,7 @@ public class PosTracker : MonoBehaviour
                 }
             }
         }
-        //errore
+        // Error
         else
         {
             info = "???";

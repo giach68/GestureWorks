@@ -4,12 +4,10 @@ using UnityEngine;
 using Leap.Unity;
 using System.Diagnostics;
 
-//è la prima classe chiamata
-
 public class Recorder : MonoBehaviour
 {
     [Tooltip("frame per second")]
-    public float freq=30;
+    public float freq = 40;
     public string fileName;
     public string folder;
 
@@ -44,19 +42,20 @@ public class Recorder : MonoBehaviour
         if (freq > 0 && stopWatch.ElapsedMilliseconds >= (1000.0f / freq)) //ogni 33ms (se freq = 30) registro nuova pos della mano
         {
             UpdateRecording();
-            stopWatch.Restart(); //riparte conteggio cronometro
+            stopWatch.Restart();
         }
     }
 
     public void Record()
-    {        
+    {
         pt.SetFilePath(folder, fileName);
         UnityEngine.Debug.Log("Recording");
 
-        pt.enabled = true; //abilito il componente pt (posTracker) invocando il metodo onEnable()
+        // Enable pt component invoking onEnable() method
+        pt.enabled = true;
 
         if (freq > 0) //può essere <0 se l'utente non vuole registrare e mette 0 su unity
-            stopWatch.Restart();        
+            stopWatch.Restart();
     }
 
     public void Stop()
@@ -65,7 +64,7 @@ public class Recorder : MonoBehaviour
         UnityEngine.Debug.Log(msg);
         pt.enabled = false;
 
-        if(freq > 0)
+        if (freq > 0)
             stopWatch.Stop();
     }
 
