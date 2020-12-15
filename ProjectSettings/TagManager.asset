@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - HelpObject
+  - RP
+  - LP
+  - Li1
+  - Li2
+  - Li3
+  - Li4
+  - Lm1
+  - Lm2
+  - Lm3
+  - Lm4
+  - Lp1
+  - Lp2
+  - Lp3
+  - Lp4
+  - Lr1
+  - Lr2
+  - Lr3
+  - Lr4
+  - Lt1
+  - Lt2
+  - Lt3
+  - Ri1
+  - Ri2
+  - Ri3
+  - Ri4
+  - Rm1
+  - Rm2
+  - Rm3
+  - Rm4
+  - Rp1
+  - Rp2
+  - Rp3
+  - Rp4
+  - Rr1
+  - Rr2
+  - Rr3
+  - Rr4
+  - Rt1
+  - Rt2
+  - Rt3
+  - LW
+  - RW
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

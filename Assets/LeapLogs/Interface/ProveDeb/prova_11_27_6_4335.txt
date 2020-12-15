@@ -1,0 +1,4 @@
+???Right;invalid_hand;
+???Right;invalid_hand;
+???Right;invalid_hand;
+
