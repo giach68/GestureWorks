@@ -36,7 +36,10 @@ public class HandPlayer: MonoBehaviour
     public float zOffset = 0; //-0.5f;
     private GUIStyle style = new GUIStyle();
     private String text = "";
+    private String label = ""; //contiene l'etichetta del gesto in corso
     private int frame = 0;
+    private int frameCounter = 0;
+    private bool backMode = false; //decide se devo andare all'indietro
 
     void Start()
     {
@@ -56,6 +59,9 @@ public class HandPlayer: MonoBehaviour
         textureSEg = new Texture2D(1, 1);
         textureSEg.SetPixel(0, 0, Color.red);
         textureSEg.Apply();
+
+        style.fontSize = 15;
+
     }
 
     //funzione di unity per aggiungere elementi grafici sulla scena
@@ -85,6 +91,7 @@ public class HandPlayer: MonoBehaviour
         {
             //index: riga file che leggo
             index = -1;
+            frameCounter = -1;
             PlayRecords();
         }
         if (player_on)
@@ -96,19 +103,42 @@ public class HandPlayer: MonoBehaviour
                 else
                     stopWatch.Start();
             }
-            if (index >= lines.Length) //sono alla fine del file
+            if (index >= lines.Length || index < 0) //sono alla fine del file
             {
                 // end player
+                backMode = false;
                 player_on = false;
                 text = "";
                 stopWatch.Reset();
-                UnityEngine.Debug.Log("Stop player");
+                UnityEngine.Debug.Log("Stop player"+" "+index.ToString());
                 return;
             }
-            // update the joints position
-            if(stopWatch.ElapsedMilliseconds > frameInterval) //frameinterval: ogni quanti ms aggiorno la visualizzazione mano
+            if (Input.GetKeyDown("1"))
             {
-                UpdateJoints(index++); //passo alla prossima riga 'scaduto' il tempo
+                frameInterval = 1000;
+            }
+            if (Input.GetKeyDown("5"))
+            {
+                frameInterval = 200;
+            }
+            if (Input.GetKeyDown("0"))
+            {
+                frameInterval = 70;
+            }
+            if (Input.GetKeyDown("b"))
+            {
+                if (backMode)
+                    backMode = false;
+                else
+                    backMode = true;
+            }
+            // update the joints position
+            if (stopWatch.ElapsedMilliseconds > frameInterval) //frameinterval: ogni quanti ms aggiorno la visualizzazione mano
+            {//passo alla prossima riga 'scaduto' il tempo
+                if (backMode)
+                    UpdateJoints(index--);
+                else
+                    UpdateJoints(index++);
                 stopWatch.Restart();
             }
         }
@@ -128,6 +158,7 @@ public class HandPlayer: MonoBehaviour
         {
             player_on = true;
             index = 0;
+            frameCounter = 0;
             stopWatch.Restart();
             UnityEngine.Debug.Log("Start player");
         }
@@ -148,11 +179,11 @@ public class HandPlayer: MonoBehaviour
 
         //split separata con ;, ogni cella è una valore splittato
         string[] valString = lines[index].Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-
+        
         //verifica se ha ## (finito un gesto)
         if(valString[1].Contains("##"))
         {
-            text = ""; //etichetta
+            label = ""; //etichetta
             //textureSEg.SetPixel(0, 0, Color.red);
             //textureSEg.Apply();
             //Thread.Sleep(700); cambio etichetta 
@@ -160,13 +191,20 @@ public class HandPlayer: MonoBehaviour
         }
         else if (valString[0].Contains("##"))
         {
-            text = valString[1];
+            label = valString[1];
 
             //Thread.Sleep(700); cambio etichetta
             //textureSEg.SetPixel(0, 0, Color.green);
             //textureSEg.Apply();
             return;
         }
+
+        text = (label + "\n" + frameCounter.ToString());
+
+        if (backMode)
+            frameCounter--;
+        else
+            frameCounter++;
 
         //conversione tutta in un'istruzione forse da fare
         float[] values = new float[valString.Length];
