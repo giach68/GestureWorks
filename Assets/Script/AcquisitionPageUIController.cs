@@ -8,6 +8,7 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using Random = System.Random;
+using System.Text.RegularExpressions;
 
 //  UnityEngine.Debug.Log();
 
@@ -24,6 +25,7 @@ public class AcquisitionPageUIController : MonoBehaviour
     public bool changeColorOnNewGesture;
     public string sequenceFilesPath;
     public int secondsToWaitAfterAcquisition;
+    public string sequenceBaseFileName = "sequence_";
 
     // Using centiseconds beacuse milliseconds are not counted accurately
     // 1 second = 100 centiseconds
@@ -36,7 +38,7 @@ public class AcquisitionPageUIController : MonoBehaviour
     private Image topColorTitle;
     private Color originalTopColorTitle;
     private Color finishingGestureTopColorTitle = new Color(0.8784314f, 0.7411765f, 0.2431373f); // orange color
-    private string[] sequenceFilesNames;
+    private List<string> sequenceFilesNames = new List<string>();
     private int sequenceFileIndex;
     private FinalPageUIController finalPageController;
     private bool acquisitionCompleted = true;
@@ -49,7 +51,7 @@ public class AcquisitionPageUIController : MonoBehaviour
         gestureDatasetList = yamlParser.DeserializeGestureDataset(@ConfigFilePath);
 
         // Get files from path
-        ReadFilesFromFolder(sequenceFilesPath);
+        ReadAndSortFilesFromFolder(sequenceFilesPath);
 
         // Read first sequence file 
         ReadSequenceFile(0);
@@ -161,17 +163,52 @@ public class AcquisitionPageUIController : MonoBehaviour
     bool AreThereNewSequencesToRead(int index)
     {
         // True if the index is NOT out of the list, so there is at least a new sequence to read
-        return index != sequenceFilesNames.Length - 1; //(-1 on the count because the index starts from 0)
+        return index != sequenceFilesNames.Count - 1; //(-1 on the count because the index starts from 0)
     }
 
-    void ReadFilesFromFolder(string sequenceFilePath)
+    void ReadAndSortFilesFromFolder(string sequenceFilePath)
     {
-        sequenceFilesNames = Directory.GetFiles(sequenceFilePath, "*.txt");
+        Regex rgx = new Regex(@"(\w+_)(\d+)(\.txt)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        //in alternativa per tutto il percorso ([\w|\\|_|\-|.|\d]*_)(\d+)(\.txt)
+
+        string[] inputSequencesFiles = Directory.GetFiles(sequenceFilePath, "*.txt");
+
+        Console.WriteLine("Original sequence:");
+        foreach (string s in inputSequencesFiles)
+        {
+            UnityEngine.Debug.Log("\t- " +  s);
+        }
+
+        // Build the sorted list, the structure orders by the key
+        SortedList sequenceFilesSortedList = new SortedList();
+        foreach (string s in inputSequencesFiles)
+        {
+            MatchCollection matches = rgx.Matches(Path.GetFileName(s));
+            GroupCollection groups = matches[0].Groups;
+
+            // Put the number as key to have the SortedList putting it in the correct place
+            // Put the string (sequence filename) as value to be used later
+            sequenceFilesSortedList.Add(Int32.Parse(groups[2].Value), s);
+        }
+
+        Console.WriteLine("Correct sequence:");
+        foreach (DictionaryEntry e in sequenceFilesSortedList)
+        {
+            UnityEngine.Debug.Log("\t- " +  e.Value);
+        }
+
+        foreach (string bau in sequenceFilesSortedList.GetValueList())
+        {
+            sequenceFilesNames.Add(bau);
+        }
+
+        foreach (string s in sequenceFilesNames)
+            UnityEngine.Debug.Log(s);
     }
 
     void ReadSequenceFile(int index)
     {
-        gestureSequenceStringArray = File.ReadAllLines(sequenceFilesNames[index]);
+        gestureSequenceStringArray = File.ReadAllLines(sequenceFilesNames[index]);        
     }
 
     bool DisplayGestureInformation(string currentGestureNameInSequence)

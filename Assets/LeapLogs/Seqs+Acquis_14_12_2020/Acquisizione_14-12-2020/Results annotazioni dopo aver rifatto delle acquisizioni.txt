@@ -1,0 +1,144 @@
+1;686;738;1116;1124;1610;1643 -> circle non viene del tutto completo e le dita si accavallano
+2;313;480;1176;1183;1560;1573 -> uno sfora in un non gesto
+3;244;261;676;875;1584;1963/END -> ok sfora in un non gesto, menu si alza
+4;
+5;207;374;667;681;1454;END
+6;
+7;653;707;1020;1216;1450;END -> deny c'è un dito che si muove, uno sfora in un non gesto
+8;
+9;
+10;270;283;647;666;988;1002
+11;297;486;?;?;1537;END -> 2 sfora in un non gesto, tap non si capisce
+12;200;226;665;682;998;1200 -> 4 sforz in un nn gesto
+13;502;660;935;1096;1426;1586;1870;1874 -> tra sfora in un nn gesto
+14;245;281;685;717;1078;1125;1661;1845 -> nel cross si muove un po un altro dito, deny un dito ai alterna con quello corretto
+15;239;434;875;1070;1357;1372;1735;1747 -> 2 sfora in un nn gesto, 1 sfora in un nn gesto
+16;280;345;826;839;?;?;1772;1934 -> circle il dito diventa lunghissimo, expand le dita diventano più lunghe del normale, tap non si capisce, 4 fatto strano
+17;?;?;1003;1009;1328;1530;1768;END -> knob non si capisce, pointing sfora in un nn gesto
+18;254;461;583;606;1083;1231;1771;1809 -> 2 sfora in un nn gesto e non si vede la posizione del pollice, circle da rivedere non si capisce bene e il dito diventa lunghissimo
+19;?;?;?;?;1403;1553;?;? -> 4 dalla posizione in cui è non è riconoscibile, menu come 4 non si capisce, anche ok non si riconosce bene soprattuto il pollice, knob non si capisce
+20;242;407;694;713;1160;1175;1790;1797
+21;300;339;811;858;1332;1342;2074;2081 -> v fatta male il dito diventa lunghissimo e in basso si chiude, cross il dito diventa veramente troppo grande
+22;386;535;?;?;1258;1270;1697;1705 -> ok non si capisce molto mano grande e tutta nera, 3 nella pos attuale non si riesce a riconoscere
+23;318;335;682;847;1100;1270;1604;1801 -> left le dita diventano molto grandi, menu non si capisce bene dalla posizione attuale, 2 sfora in un nn gesto e si capisce poco
+24;245;431;666;675;?;?;1863;1880 -> deny sfora in un nn gesto, tap c'è un dito che si alza ogni tanto, knob fatto male
+25;260;332;736;892;1151;1182;?;?;1197;2004 -> circle inizio strano e il dito diventa lunghissimo, v dito diventa lunghissimo, 4 così non si capisce
+26;?;?;624;637;1035;1211;1476;1528;1970;1986 -> cross la mano si deforma, 3 non si capisce bene dalla posizione, circle dito diventa lunghissimo, tap il mignolo si lza ogni tanto
+27;308;494;704;892;?;?;1488;1665;?;? -> ok si fa fatica a vedere il pollice, v non si capisce le dita diventano lunghissime, cross le dita diventano lunghissime
+28;257;266;536;539;882;896;1161;1236;1607;1630 -> left la mano diventa gigante e non si capisce niente
+29;260;270;698;826;1123;1226;1550;1646;1967;1999 -> knob non si capisce, deny usa 2 dita, knob non si capisce
+30;278;288;618;670;?;?;1488;1567;1970;2066 -> v la seconda parte il dito è piegato, tap non si capisce
+31;299;?;731;851;1203;1329;1553;1562;1940;1948 -> cross non si capisce, 2 sfora in un nn gsto
+32;214;223;661;729;1059;1181;1474;1597;1845;1875 -> circle le dita continuano ad alternarsi e non si capisce bene
+33;251;366;726;754;1181;1188;1556;1626;?;? -> deny dita lunghissime e si capisce poco, left la mano diventa gigante, circle il dito diventa lunghissimo e non si capisce dove finisce, v dita enormi non si capsice niente
+34;311;473;756;760;1209;1238;1661;1775;2138;2143 -> 2 sfora in un nn gesto e c'è un dito mezzo alzato, cross non si capisce bene
+35;220;403;594;670;1035;1134;1400;1427;1804;1825 -> 2 sforia in un nn gesto e la mano diventa gigante, deny dita grandi e un dito mezzo alzato, right a metà tragitoo la mano si ingradisce un po', tap c'è sempre un dito di troppo
+36;?;?;661;695;1077;1089;1467;1620;1877;1941 ->  non si capisce dita troppo grandi, left la mano diventa gigante e non si capisce più, knob non si vede la parte inziale essendo sotto
+37;280;?;?;?;1408;1509 -> pointing non si capisce più niente quando il diventa enorme, knob non si capisce dita troppo grandi
+38;366;376;790;921;1690;1846 -> 3 si muove spesso da rivedere
+39;319;333;737;778;1665;1670 -> cross in alcuni punti il dito si piega ma di poco
+40;708;877;1120;1320;?;? -> 4 sfora in un nn gesto, tap non si capisce
+41;305;388;1306;1330;1683;1703 -> deny su muove anche l'indice, left la mano diventa gigante
+42;292;486;751;805;1575;1602 -> 2 sfora in un nn gesto e c'è un dtio che sontinua a piegarsi, circle non si capisce bene la mano è spesso chiusa, v la parte finale il pugno si chiude
+43;297;463;802;814;1180;1186 ->  sfora in un nn gesto
+44;287;330;755;955;1536;1558 -> knob la parte inziale non la vedo
+45;207;396;639;674;1051;1096 -> 2 sfora in un nn gesto e l  indice si piega 1 sec, cross nell ultima parte le dita si cambiano
+46;?;?;760;905;1774;1796 -> tap non si capisce, left la mano diventa gigante
+47;298;465;818;826;1683;1742 -> 1 sfora in un nn gesto, circle dito diventa lungo e la mano si chiude a pugno
+48;208;283;656;801;1446;END -> deny si alza l indice, pointing il dito si allunga un po'
+49;
+50;226;233;643;708;1125;1134;1607;1623/END -> circle non si capisce la mano di ingrandisce ed è spesso chiusa, 3 non è fatto benissimo e si interrompe a metà poi riprende
+51;332;353;916;1103;1375;1577;1830;END -> left la mano divnta gigante, pointing sfocia in un nn gesto, 4 sfroa in un nn gesto
+52;555;565;1013;1047;1373;1512;1805;1906 -> cross la mano si chiude nkn si capisce bene
+53;306;318;715;830/867;1207;1364;1890;END -> knob non si vede bene dal basso, ok si muove a metà, pointing il mignolo ogni tanto si alza
+54;
+55;461;485;920;1090;?;?;1789;END -> left la mano diventa gigante, tap non si capisce
+56;283;344;?;?;1450;1559;1827;1892 -> circle la mano è quasi sempre chiusa, knob non si capisce bene, 4 sfora in un nn gesto
+57;?;?;?;?;?;?;?;? -> grab incomprensibile la mano è tropo grande, 2 incomprensibile mano troppo grande, expand incomprensibile mano troppo grande, pinch incomprensibile mano troppo grande
+58;276;310;857;1012;1283;1487;1704;1897 -> v alla fine il dito si piega,  sfora in un nn gesto, ok alcune dita si muovono un po'
+59;?;?;?;?;1225;1400;1661;1693 -> tap non si capisce, knob non si capisce, 2 sfroa in un nn gesto e le dita si muovono, left la mano diventa gigante
+60;217;403;780;923;1249;1255;1684;1691 -> 4 sfora in un nn gesto, pinch non mi sembra si tocchino bene le dita
+61;314;365;726;739;1166;1225;1605;1728;2031;2071 -> cross un dito diventa lunghissimo e la mano si chiude a pugno, circle la mano è spessp a pugno, deny in alcun momento all'inziio si alza un altro dito, pointing quando si alza si piega un attimo
+62;
+63;291;363;745;866;1255;1367;1714;1760;2120;2130 -> knob riguardare sempre dal basso, pinch non chiude bene
+64;320;336;727;948;1140;1153;1589;1603;2039;END -> menu sfora in un nn gesto, v mano si chiude
+65;177;376;661;672;1111;1129;1560;1761;2027;2037 -> 2 sfora in un nn gesto, pointing sfora in un nn gesto, knob l'inizio non lo vedo
+66;305;453;696;758;1145;1160;1492;1663;1945;1977
+67;282;298;681;697;1180;1382;1552;1763;1990;2000 -> right la mano è un po più grande, pointing sofra in un nn gesto, 2 sfora in un nn gsto
+68;190;399;663;831;1044;1170;1491;1498;1857;1866 -> 3 sfora in un nn gesto; grab quando chiude c'è un dito che fa qiello che vuole
+69;279;328;730;753;1216;1123;1681;1697;2120;2163 -> cross dito lungo e continuano a chiudersi, v dito in basso si chiude
+70;231;240;675;877;1179;1392;1611;1615;1647;1661;1987;2186 -> knob noon vedo l'inizio,menu sfroa in un nn gesto, 1 sfroa in un nn gesto, 2 pinch forse credo primo sia fusallo
+71;191;298;688;695;1058;1266;1437;1490;1840;END -> 4 sfroa in un nn gesto
+72;272;314;628;791;1133;1151;1577;1591;1970;1980 -> cross si chiude il pugno in basso, v il dito in basso si chiude un po'
+73;287;472;1060;1082;1546;1559 -> ok sfora in un nn gesto, v dito lunghissimo
+74;224;384;631;774;1441;1483 -> circle dito molto lungo in alto
+75;538;622;916;924;1240;1339
+76;492;573;1011;1058;1458;1588 -> cross quando scende il dito si choiude e quando si rialza si scambiano le dita
+77;762;773;1199;1385;1712;1722 -> knob l inizio non si vede dal basso e quando finisce la mano è aperta
+78;200;210;987;1005;1377;1384
+79;225;344;630;746;1494;1500 -> knob parte dal basso e non si vede
+80;585;625;968;983;1383;1425 -> cross il dito si piega quando scende
+81;203;216;699;708;1415;END
+82;231;245;680;898;1515;1564 -> ok sofra in un nn gesto, circle quando parte il dito è un po' piegato
+83;270;465;723;917;1506;1618 -> 2 sfora in un nn gesto
+84;301;320;695;715;1625;1639 -> v molto piccola e mano si chiude in basso
+85;310;425;974;990;1420;1540;1835;1998
+86;290;298;934;991;1387;1485;1806;1954 -> circle dito diventa molto grande
+87;221;407;592;610;1269;1275;1688;1720 -> 4 sfora in un nn gesto, v molto piccola e il dito si chiude quando va in basso, cross quando il dito scende si chiude
+88;310;328;857;956;1289;1303;1676;1689
+89;303;356;780;786;1249;1302;1797;1810 -> parte in basso e non si vede
+90;303;313;697;796;1083;1099;1698;1798
+91;162;339;586;626;1303;1320;1732;1866
+92;326;330;1020;1039;1365;1547;1746;1750 -> knob parte dal basso e non lo vedo
+93;256;405;645;682;1104;1116;1678;1821 -> cross la mano in basso si chiude
+94;286;426;881;1066;1305;1333;1790;1801
+95;266;273;716;731;1265;1420;1718;1834 -> knob parte da sotto e non si vede
+96;201;207;834;989;1241;1254;1634;1647
+97;253/376;432;625;629;1056;1092;1380;1427;1748;1764 -> pointing sfora in un nn gesto e il dito è un po piegqato all'inizio, cross dito si piega in basso, circle dito lungo verso l'alto e non capisco bene quando inizi/finisca, v il dito in vasso di chiude
+98;247;348;747;753;1181;1225;1669;1675;2106;2120 -> circle dito diventa lunghissimo e non capisco bene quando inizia/finisce, knob parte dela basso e non si capisce bene
+99;238;249;646;743;1046;1176;1405;1617;1826;1836 -> 1 sfora in un nn gesto
+100;
+101;240;432;718;722;1218;1230;1602;1793;2124;2133 -> menu sfora un non gesto, 2 sfora in un nn gesto
+102;?;?;575;579;987;?;1377;1403;1796;END -> tap nn si capisce, v non si capisce, circle nn si capisce bene e dito lungo
+103;185;362;532;730;951;1140;1395;1411;1794;? -> menu sfora in un non gesto, 2 sfora in un non gesto, 1 sfora in un non gesto, cross non si capisce
+104;289;301;746;764;1152;1167;1541;1746;?;? -> deny fatto male
+105;301;490;712;728;1080;1116;1454;1532;1965;1975 -> tre sofcia in un non gesto, cerchio inzio strano
+106;233;256;650;661;1030;1231;1470;1670;1865;? -> 3 e 1 sforano in un non gesto, cross non si capisce
+107;247;435;715;?;1080;1097;1520;1710;1966;1976 -> 4 sfora in un non gesto, V non si capisce, left la mano diventa gigante, ok sofra in un nn gesto
+108;332;340;720;920;1188;1400;1619;1634;?;? -> knob ha uno strano dito all'insu, 2 sfocia in un nn gesto, menu sfora in un non gesto; tap non si capisce
+109;260;275;890;913;1274;? -> cross non si capisce
+110;189;376;645;670;1117;1309 -> 1 sfora in un nn gesto, 4 sfora in un nn gesto
+111;282;304;660;857;1447;1454 -> menu sfroa in un nn gesto, Knob le dita si mettono in maniera strana
+112;314;350;654;852;1171;1183-> circle inizio non si vede, ok sfora in un nn gesto
+113;558;658;1015;1210;1384;1391 ->  sfora in un nn gesto
+114;247;?;1081;?;1529;END -> v non si capisce, tap non torna indietro
+115;594;824;1033;1056;1495;? -> 1 sfora in un nn gsto, la v si capisce poco ma meglio delle altre, cross non si capisce
+116;300;315;705;736;1606;END -> left la mano diventa molto grande, circle non viene fatto completo
+117;319;499;780;792;1413;1421 -> tre sfora in un nn gesto, knob le dite fanno quello che volgiono
+118;
+119;237;430;629;647;1060;1257 -> ok sfora in un nn gesto, menu sfora in un nn gesto
+120;
+121;?;?;858;1027;1257;1453;1684;1694 -> cross non si capisce,  sforz in un nn gesto, 3 sfroz in un nn gesto
+122;?;?;867;1032;1192;1240;1600;1616 -> tap non si capisce, quattro sfora in un nn gesto
+123;298;318;671;857;1258;1279;1604;1644 -> left la mano diventa gigante, circle l'inizio è strano e le dita anche
+124;402;584;775;784;1212;1245;1595;1607 -> ok sfora in un nn gesto, knob fatto strano riguardare, v strana ma è la migliore di tutte
+125;408;416;809;963;1216;1359;1541;1558 -> one fora in un nn gesto, one sfora in un nn gesto
+126;300;504;900;1094;1320;1494;1787;1971 -> 4 sfora in un nn gesto,3 sfora in un nn gesto, 2 sfora in un nn gesto
+127;506;514;1024;1045;1498;1526;1929;END
+128;213;387;633;650;1031;1044;?;? -> pointing sfora in un nn gesto, il tap non si capisce, knob non ben riconoscibile
+129;296;349;695;699;1143;1294;1760;1820 -> circle dito diventa lunghissimo
+130;285;449;761;771;1386;1391;1769;1778 -> deny c'è un dito che si muove in modo strano
+131;295;354;874;1091;1355;1540;1811;1987 -> cross c'è un momento in cui c'è un dito di troppo, 3 sfora in un nn gesto
+132;?;?;646;684;1114;1173;1633;1792 -> tap non si capisce, v alla fine c'è un mugnolo alzato, circle durante la chiusura le dita si muovono male
+133;243;375;648;667;1100;1239;1537;1734;?;? -> menu sfora in un nn gesto, ok sofra in un nn gesto, knob non si capisce
+134;287;308;693;881;1199;1308;1553;1669;1991;1999 -> 2 sfora in un nn gesto
+135;270;293;746;762;1169;1317;1549;1719;1936;END -> den c'è un momento in cui si alza un altro dito
+136;319;336;798;854;1273;1305;1722;1832;2243;2257 -> cross quando la mano è in basso non si capisce bene, v quando la mano è bassa non si capisce
+137;330;499;795;811;1195;1256;?;?;2025;2067 -> circle si alza il mignolo e quando scende il dito si piega, knob non si capisce, cross si alza un dito alla fine
+138;?;?;732;912;1149;1293;1647;1674;2039;2211 -> knob non si capisce, 4 sfora in un nn gesto, left la mano diventa gigante, deny a un certo punto il dito si piega
+139;369;379;673;709;1096;1270,;1470;1607;1937;1949 -> 3 sfora in un nn gesto
+140;220;300;713;731;1189;1322;1680;1834;2126;2139 -> circle la mano diventa enorme
+141;287;322;750;929;1127;1144;1502;1527;1914;2055 -> v si alza un altro dito alla fine, 2 sfora in un nn gesto
+142;296;313;693;715;1108;1312;1548;1566;1933;1973 -> 3 sfora in un nn gesto, cross alla fine mignolo alzato
+143;291;446;809;818;1252;1301;1660;1870;2080;END -> circle la mano diventa enorme a meta tragitto, 2 sfora in un nn gesto
+144;285;455;771;783;?;?;1660;1860;2090;2238 -> 4 sfora in un nn gessto, knob non si capisce, menu sfora in un nn gesto

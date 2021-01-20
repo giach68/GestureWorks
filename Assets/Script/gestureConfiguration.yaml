@@ -24,7 +24,7 @@
  gestureNameInSequence: TWO
  gestureDisplayName: two
  gestureDescription: "The index and the middle finger are raised, other fingers are closed"
- timerDuration: 6
+ timerDuration: 5
  videoFileName: "2 gesto due.mp4"
 
 - 
@@ -32,7 +32,7 @@
  gestureNameInSequence: THREE
  gestureDisplayName: three
  gestureDescription: "Index, middle and thumb raised, other fingers closed"
- timerDuration: 7
+ timerDuration: 5
  videoFileName: "3 gesto tre.mp4"
 
 -
@@ -40,7 +40,7 @@
  gestureNameInSequence: FOUR
  gestureDisplayName: four
  gestureDescription: "Thumb closed and others fingers raised"
- timerDuration: 8
+ timerDuration: 5
  videoFileName: "4 gesto quattro.mp4"
 
 - 
@@ -48,7 +48,7 @@
  gestureNameInSequence: OK
  gestureDisplayName: ok
  gestureDescription: "All the fingers are raised, while the index and thumb are closed in order to shape a circle"
- timerDuration: 1
+ timerDuration: 5
  videoFileName: "5 gesto ok.mp4"
 
 -
