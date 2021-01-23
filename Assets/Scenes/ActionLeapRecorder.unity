@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freq: 50
   fileName: acq
-  folder: Seqs+Acquis_14_12_2020/Acquisizione_14-12-2020/prova
+  folder: Seqs+Acquis_14_12_2020/Acquisizione_14-12-2020/temp
 --- !u!1 &830420389
 GameObject:
   m_ObjectHideFlags: 0
