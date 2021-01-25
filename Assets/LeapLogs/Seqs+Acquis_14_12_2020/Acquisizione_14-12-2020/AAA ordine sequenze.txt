@@ -210,8 +210,14 @@ deborah
 36
 
 sequenze extra rifatte:
+1
 4 
 5
 8
+9
+14
+15
 16
+19
 22
+36
